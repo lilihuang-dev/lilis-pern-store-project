@@ -11,3 +11,61 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+nav {
+  background-color: rgb(168, 199, 95);
+  display: flex;
+  justify-content: space-between;
+}
+
+.navbar-logo {
+  width: 100px;
+  border-radius: 50%;
+  margin-left: 38px;
+}
+
+nav a{
+  text-decoration: none;
+  font-size: x-large;
+  margin-top: 10px;
+  text-decoration: none;
+  color: rgb(235, 200, 114);
+  font-family: "font-effect-outline";
+}
+
+nav button {
+  color: rgb(57, 116, 116);
+  margin-top: 25px;
+  margin-right: 38px;
+  font-size: x-large;
+  border-radius: 30px;
+  border: rgb(151, 194, 52) 10px solid;
+}
+
+.homepage {
+  margin-top: 50px;
+  text-align: center;
+  font-size: x-large;
+}
+
+.homepage img {
+  width: 600px;
+}
+
+.all-clocks {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+}
+
+.clock-card-img {
+  width: 200px;
+  border: 4mm ridge rgb(245, 210, 145);
+  border-radius: 1px 0 3px 4px;
+}
+
+.clock-card {
+  width: 230px;
+  box-shadow: 3px 3px 3px 4px rgb(245, 210, 145);
+  margin: 4em;
+  padding:1em;
+}
