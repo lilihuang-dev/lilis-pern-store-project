@@ -35,47 +35,6 @@ const NewClock =()=>{
 
 
     return (
-    //     <form onSubmit={handleSubmit}>
-    //         <label htmlFor="name">Name: </label>
-    //         <input type="text" id="name" value={clock.name} onChange={handleTextChange} />
-    //         <br />
-    //         <br />
-    //         <label htmlFor="price">Price: </label>
-    //         <input type="number" id="price" value={clock.price} onChange={handleTextChange} />
-    //         <br />
-    //         <br />
-    //         <label htmlFor="material">Material: </label>
-    //         <input type="text" id="material" value={clock.material} onChange={handleTextChange} />
-    //         <br />
-    //         <br />
-    //         <label htmlFor="color">Color:</label>
-    //         <input type="text" id="color" value={clock.color} onChange={handleTextChange} />
-    //         <br />
-    //         <br />
-    //         <label htmlFor="dimensions">Dimensions: </label>
-    //         <input type="text" id="dimensions" value={clock.dimensions} onChange={handleTextChange} placeholder="Please enter dimensions"/>
-    //         <br />
-    //         <br />
-    //         <label htmlFor="image">Image: </label>
-    //         <input type="text" id="image" value={clock.image} onChange={handleTextChange} placeholder="Please enter URL"/>
-    //         <br />
-    //         <br />
-    //         <label htmlFor="description">Description: </label>
-    //         <input type="text" id="description" value={clock.description} onChange={handleTextChange} />
-    //         <br />
-    //         <br />
-    //         <label htmlFor="rating">Rating: </label>
-    //         <input type="number" id="rating" value={clock.rating} onChange={handleTextChange} />
-    //         <br />
-    //         <br />
-    //         <label htmlFor="featured">Featured: </label>
-    //         <input type="checkbox" id="featured" value={clock.featured} onChange={handleCheckBox} checked={clock.featured}/>
-    //         <br />
-    //         <br />
-    //         <input type="submit" />
-
-    //     </form>
-    // )
     <form onSubmit={handleSubmit} className="new-form">
     <div className="new-form-one">
         <label htmlFor="name">Name: </label>
@@ -95,7 +54,7 @@ const NewClock =()=>{
         <input type="text" id="dimensions" value={clock.dimensions} onChange={handleTextChange} placeholder="Please enter dimensions"/>
     
         <label htmlFor="image">Image: </label>
-        <input type="text" id="image" value={clock.image} onChange={handleTextChange} />
+        <input type="text" id="image" value={clock.image} onChange={handleTextChange} placeholder="Please enter URL"/>
     
         <label htmlFor="description">Description: </label>
         <input type="text" id="description" value={clock.description} onChange={handleTextChange} placeholder="Please enter description"/>
