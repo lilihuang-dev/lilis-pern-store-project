@@ -61,7 +61,29 @@ nav button {
   width: 200px;
   border: 4mm ridge rgb(245, 210, 145);
   border-radius: 1px 0 3px 4px;
+  grid-area: card-img;
 }
+
+.clock-card-title {
+  grid-area: card-title;
+}
+
+.clock-card-details {
+  grid-area: card-details;
+} 
+
+.clock-card-navs {
+  grid-area: card-navs;
+  display: flex;
+  justify-content: space-between;
+}
+
+.clock-card-navs * {
+  border: 3px solid olivedrab;
+  width: 100px;
+  font-size: large;
+  background-color: rgb(168, 199, 95);
+} 
 
 .clock-card {
   width: 230px;
@@ -69,3 +91,18 @@ nav button {
   margin: 4em;
   padding:1em;
 }
+
+.clock-details {
+  /* background: url("https://static6.depositphotos.com/1002457/569/v/950/depositphotos_5690641-stock-illustration-bright-light-green-background.jpg") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover; */
+  color: rgb(33, 92, 5);
+  display: grid;
+  grid-template-areas: 
+  "card-img card-title"
+  "card-img card-details"
+  "card-navs card-navs";
+  margin: 60px;
+} 

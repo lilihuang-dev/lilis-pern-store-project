@@ -22,6 +22,7 @@ function App () {
           <Route path="*" element={<FourOFour />}/>
         </Routes>
       </main>
+      
     </ Router>
   )
 }

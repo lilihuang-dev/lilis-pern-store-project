@@ -45,10 +45,10 @@ const NewClock =()=>{
             <br />
             <br />
             <label htmlFor="material">Material: </label>
-            <input type="text" id="rating" value={clock.material} onChange={handleTextChange} placeholder="Please enter material"/>
+            <input type="text" id="material" value={clock.material} onChange={handleTextChange} placeholder="Please enter material"/>
             <br />
             <br />
-            <label htmlFor="color">Image:</label>
+            <label htmlFor="color">Color:</label>
             <input type="text" id="color" value={clock.color} onChange={handleTextChange} placeholder="Please enter color"/>
             <br />
             <br />
