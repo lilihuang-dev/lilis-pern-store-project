@@ -8,9 +8,9 @@ const Clock = ({clock}) => {
 
             <Link to={`/clocks/${clock.id}`}><h2 className="clock-card-name">{clock.name}</h2></Link>
 
-            <h3 className="clock-card-price">${clock.price}.00</h3>
+            <h3>${clock.price}.00</h3>
 
-            <h5>🍀 Rating: {clock.rating}  {("🤩").repeat(clock.rating)}</h5>
+            <h5>🍀 Rating: {("🤩").repeat(clock.rating)}</h5>
         </div>
     )
 }

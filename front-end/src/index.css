@@ -43,7 +43,7 @@ nav button {
 }
 
 .homepage {
-  margin-top: 50px;
+  margin-top: 70px;
   text-align: center;
   font-size: x-large;
 }
@@ -53,15 +53,18 @@ nav button {
 }
 
 .all-clocks {
+  margin-top: 50px;
   display: grid;
   grid-template-columns: repeat(3,1fr);
 }
 
 .clock-card-img {
-  width: 200px;
+  width: 300px;
+  height: 330px;
   border: 4mm ridge rgb(245, 210, 145);
   border-radius: 1px 0 3px 4px;
   grid-area: card-img;
+  margin-top: 30px;
 }
 
 .clock-card-title {
@@ -70,6 +73,7 @@ nav button {
 
 .clock-card-details {
   grid-area: card-details;
+  width: 700px;
 } 
 
 .clock-card-navs {
@@ -86,7 +90,7 @@ nav button {
 } 
 
 .clock-card {
-  width: 230px;
+  width: 325px;
   box-shadow: 3px 3px 3px 4px rgb(245, 210, 145);
   margin: 4em;
   padding:1em;
@@ -105,4 +109,64 @@ nav button {
   "card-img card-details"
   "card-navs card-navs";
   margin: 60px;
+  gap: 50px;
 } 
+
+.edit-form{
+  margin: 120px;
+  font-size: xx-large;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 200px;
+  color:  rgb(33, 92, 5);
+  font-weight: 550;
+}
+.new-form{
+  margin: 120px;
+  font-size: xx-large;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 200px;
+  color:  rgb(33, 92, 5);
+  font-weight: 550;
+}
+
+.edit-form-one input{
+  width: 200px;
+  height: 30px;
+  font-size:medium;
+  font-weight: bold;
+}
+.new-form-one input{
+  width: 200px;
+  height: 30px;
+  font-size:medium;
+  font-weight: bold;
+}
+
+.edit-form-two input{
+  width: 480px;
+  height: 30px;
+  font-size: medium;
+  font-weight: bold;
+}
+.new-form-two input{
+  width: 480px;
+  height: 30px;
+  font-size: medium;
+  font-weight: bold;
+}
+
+.edit-form-three, .new-form-three{
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+} 
+
+.edit-form-submit, .new-form-submit{
+  width: 130px;
+  border: 8px solid rgb(230, 185, 102);
+  background-color: rgb(18, 235, 116);
+  font-size:x-large;
+}

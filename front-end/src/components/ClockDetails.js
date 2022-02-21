@@ -6,7 +6,6 @@ import noImage from "../assets/image_not_found.png";
 const ClockDetails = () =>{
     const [clock, setClock] = useState({});
     const {id} = useParams();
-    console.log(id)
     const navigate = useNavigate();
     const API = process.env.REACT_APP_API_URL;
     
@@ -25,7 +24,7 @@ const ClockDetails = () =>{
     return (
         <div className="clock-details">
             <img className="clock-card-img" src={clock.image ? clock.image : noImage} alt={clock.name} />
-            
+
             <div className="clock-card-title">
                 <h2>{clock.name}, Silent Non-Ticking Wall Clock Decorative Wall Clock</h2>
                 <h4>Rating: {("🤩").repeat(clock.rating)}</h4>
@@ -33,7 +32,6 @@ const ClockDetails = () =>{
                 <h3>${clock.price}.00</h3>
             </div>
 
-            <br />
             <div className="clock-card-details">
                 <h2>About this item</h2>
                 <h4>{clock.description}</h4>

@@ -18,7 +18,6 @@ const EditClock =()=>{
     });
     const {id} = useParams();
     const navigate = useNavigate();
-    console.log(id)
 
     useEffect(()=>{
         axios.get(`${API}/clocks/${id}`)
@@ -42,44 +41,43 @@ const EditClock =()=>{
     }
 
     return (
-        <form onSubmit={handleSubmit}>
-            <label htmlFor="name">Name: </label>
-            <input type="text" id="name" value={clock.name} onChange={handleTextChange} required/>
-            <br />
-            <br />
-            <label htmlFor="price">Price: </label>
-            <input type="number" id="price" value={clock.price} onChange={handleTextChange} />
-            <br />
-            <br />
-            <label htmlFor="material">Material: </label>
-            <input type="text" id="rating" value={clock.material} onChange={handleTextChange} />
-            <br />
-            <br />
-            <label htmlFor="color">Image:</label>
-            <input type="text" id="color" value={clock.color} onChange={handleTextChange} />
-            <br />
-            <br />
-            <label htmlFor="dimensions">Dimensions: </label>
-            <input type="text" id="dimensions" value={clock.dimensions} onChange={handleTextChange} />
-            <br />
-            <br />
-            <label htmlFor="img">Image: </label>
-            <input type="text" id="img" value={clock.image} onChange={handleTextChange} />
-            <br />
-            <br />
-            <label htmlFor="description">Description: </label>
-            <input type="text" id="description" value={clock.description} onChange={handleTextChange} />
-            <br />
-            <br />
-            <label htmlFor="rating">Rating: </label>
-            <input type="number" id="rating" value={clock.rating} onChange={handleTextChange} />
-            <br />
-            <br />
-            <label htmlFor="featured">Featured: </label>
-            <input type="checkbox" id="featured" value={clock.featured} onChange={handleCheckBox} checked={clock.featured}/>
-            <br />
-            <br />
-            <input type="submit" />
+        <form onSubmit={handleSubmit} className="edit-form">
+            <div className="edit-form-one">
+                <label htmlFor="name">Name: </label>
+                <input type="text" id="name" value={clock.name} onChange={handleTextChange} required/>
+                
+                <label htmlFor="price">Price: </label>
+                <input type="number" id="price" value={clock.price} onChange={handleTextChange} />
+            
+                <label htmlFor="material">Material: </label>
+                <input type="text" id="material" value={clock.material} onChange={handleTextChange} />
+
+                <label htmlFor="rating">Rating: </label>
+                <input type="number" id="rating" value={clock.rating} onChange={handleTextChange} />
+            </div>
+            <div className="edit-form-two">
+                <label htmlFor="dimensions">Dimensions: </label>
+                <input type="text" id="dimensions" value={clock.dimensions} onChange={handleTextChange} />
+            
+                <label htmlFor="image">Image: </label>
+                <input type="text" id="image" value={clock.image} onChange={handleTextChange} />
+            
+                <label htmlFor="description">Description: </label>
+                <input type="text" id="description" value={clock.description} onChange={handleTextChange} />
+            
+                <label htmlFor="color">Color:</label>
+                <input type="text" id="color" value={clock.color} onChange={handleTextChange} />
+            </div>
+            <div className="edit-form-three">
+                <label htmlFor="featured">Featured: </label>
+                <input type="checkbox" id="featured" value={clock.featured} onChange={handleCheckBox} checked={clock.featured}/>
+            
+                <div><input className="edit-form-submit" type="submit" /></div>
+            </div>
+            
+          
+            
+            
 
         </form>
     )
