@@ -14,7 +14,8 @@ const EditClock =()=>{
         material:"",
         price: 0,
         rating: 0,
-        featured: false
+        featured: false,
+        quantity: 30
     });
     const {id} = useParams();
     const navigate = useNavigate();
@@ -46,11 +47,11 @@ const EditClock =()=>{
                 <label htmlFor="name">Name: </label>
                 <input type="text" id="name" value={clock.name} onChange={handleTextChange} required/>
                 
-                <label htmlFor="price">Price: </label>
-                <input type="number" id="price" value={clock.price} onChange={handleTextChange} />
-            
                 <label htmlFor="material">Material: </label>
                 <input type="text" id="material" value={clock.material} onChange={handleTextChange} />
+                
+                <label htmlFor="price">Price: </label>
+                <input type="number" id="price" value={clock.price} onChange={handleTextChange} />
 
                 <label htmlFor="rating">Rating: </label>
                 <input type="number" id="rating" value={clock.rating} onChange={handleTextChange} />
@@ -71,7 +72,10 @@ const EditClock =()=>{
             <div className="edit-form-three">
                 <label htmlFor="featured">Featured: </label>
                 <input type="checkbox" id="featured" value={clock.featured} onChange={handleCheckBox} checked={clock.featured}/>
-            
+
+                <label htmlFor="quantity">Quantity: </label>
+                <input className="edit-3-quantity" type="number" id="quantity" value={clock.quantity} onChange={handleCheckBox} />
+
                 <div><input className="edit-form-submit" type="submit" /></div>
             </div>
             

@@ -40,7 +40,7 @@ const updateClock = async(id, clock) =>{
 const createClock = async(clock) =>{
     try {
         const createdClock = await db.one(
-            "INSERT INTO clocks(name, description, image, dimensions, color, material, price, rating, featured) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING *",
+            "INSERT INTO clocks(name, description, image, dimensions, color, material, price, rating, featured, quantity) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING *",
             [clock.name, clock.description, clock.image, clock.dimensions, clock.color, clock.material, clock.price, clock.rating, clock.featured, clock.quantity]
         )
         return createdClock;

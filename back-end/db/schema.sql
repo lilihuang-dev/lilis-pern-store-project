@@ -14,8 +14,8 @@ CREATE TABLE clocks (
     color VARCHAR(255),
     material VARCHAR(255),
     price INTEGER DEFAULT 0,
-    quantity INTEGER DEFAULT 0,
     rating NUMERIC,
     CHECK (rating >=0 AND rating <=5),
-    featured BOOLEAN
+    featured BOOLEAN,
+    quantity INTEGER DEFAULT 0
 );

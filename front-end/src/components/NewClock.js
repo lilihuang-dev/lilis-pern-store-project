@@ -14,7 +14,8 @@ const NewClock =()=>{
         material:"",
         price: 0,
         rating: 0,
-        featured: false
+        featured: false,
+        quantity: 30
     });
     const navigate = useNavigate();
 
@@ -40,11 +41,11 @@ const NewClock =()=>{
         <label htmlFor="name">Name: </label>
         <input type="text" id="name" value={clock.name} onChange={handleTextChange} placeholder="Name required"required/>
         
-        <label htmlFor="price">Price: </label>
-        <input type="number" id="price" value={clock.price} onChange={handleTextChange} />
-    
         <label htmlFor="material">Material: </label>
         <input type="text" id="material" value={clock.material} onChange={handleTextChange} placeholder="Please enter material"/>
+
+        <label htmlFor="price">Price: </label>
+        <input type="number" id="price" value={clock.price} onChange={handleTextChange} />
         
         <label htmlFor="rating">Rating: </label>
         <input type="number" id="rating" value={clock.rating} onChange={handleTextChange} />
@@ -65,7 +66,9 @@ const NewClock =()=>{
     <div className="new-form-three">
         <label htmlFor="featured">Featured: </label>
         <input type="checkbox" id="featured" value={clock.featured} onChange={handleCheckBox} checked={clock.featured}/>
-    
+        
+        <label htmlFor="quantity">Quantity: </label>
+        <input className="new-3-quantity"type="number" id="quantity" value={clock.quantity} onChange={handleCheckBox} />
         <div><input className="new-form-submit" type="submit" /></div>
     </div>
     

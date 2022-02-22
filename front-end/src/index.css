@@ -14,6 +14,7 @@ code {
 
 nav {
   background-color: rgb(168, 199, 95);
+  border: groove 15px;
   display: flex;
   justify-content: space-between;
 }
@@ -27,7 +28,7 @@ nav {
 nav a{
   text-decoration: none;
   font-size: x-large;
-  margin-top: 10px;
+  margin-top: 0px;
   text-decoration: none;
   color: rgb(235, 200, 114);
   font-family: "font-effect-outline";
@@ -42,6 +43,10 @@ nav button {
   border: rgb(151, 194, 52) 10px solid;
 }
 
+.navbar-all-clocks {
+  margin-top: 20px;
+  font-weight: bold;
+}
 .homepage {
   margin-top: 70px;
   text-align: center;
@@ -136,6 +141,13 @@ nav button {
   display: grid;
   grid-template-columns: repeat(2,1fr);
 } 
+
+.edit-3-quantity, .new-3-quantity {
+  width: 60px;
+  height: 45px;
+  font-size: x-large;
+  border: 4px groove black;
+}
 
 .edit-form-submit, .new-form-submit{
   width: 130px;

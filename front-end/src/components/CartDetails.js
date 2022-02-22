@@ -52,6 +52,9 @@ const CartDetails =(clock)=> {
             <tr>Total: {subTotal*1.18}.00  clock.price * clock.quantity(a function to handle total and remove?)</tr> */}
             <tr></tr>
             <tr><button>Please click to check out   (function handleSubmit link get the total data? and navigate to the checkout page?)</button></tr>
+            <tr> Can I add the added clock in an empty array to store it and show here? </tr>
+            <tr> Need to work with quantity (the database quantity and user chose quantity? )</tr>
+            <tr>It is the correct way to show this info here? Or any other better ways to do it?</tr>
         </tbody>
     )
 }
