@@ -5,6 +5,7 @@ import noImage from "../assets/image_not_found.png";
 
 const ClockDetails = () =>{
     const [clock, setClock] = useState({});
+    const [clocks, setClocks] = useState([]);
     const {id} = useParams();
     const navigate = useNavigate();
     const API = process.env.REACT_APP_API_URL;
@@ -21,6 +22,8 @@ const ClockDetails = () =>{
             .catch(err => console.log(err));
     }
 
+    
+
     return (
         <div className="clock-details">
             <img className="clock-card-img" src={clock.image ? clock.image : noImage} alt={clock.name} />
@@ -30,6 +33,7 @@ const ClockDetails = () =>{
                 <h4>Rating: {("🤩").repeat(clock.rating)}</h4>
                 <h4>{clock.featured ? "Best Choice" : null}</h4>
                 <h3>${clock.price}.00</h3>
+                <Link to="/clocks/cart"><button>Add to Cart</button></Link>
             </div>
 
             <div className="clock-card-details">
@@ -39,6 +43,7 @@ const ClockDetails = () =>{
                 <h4>Color: {clock.color}</h4>
                 <h4>Dimensions: {clock.dimensions}</h4>
             </div>
+            
           
             <div className="clock-card-navs">
                 <Link to="/clocks"><button>Back</button></Link>
