@@ -142,7 +142,7 @@ nav button {
   grid-template-columns: repeat(2,1fr);
 } 
 
-.edit-3-quantity, .new-3-quantity {
+.edit-3-stock, .new-3-stock {
   width: 60px;
   height: 45px;
   font-size: x-large;

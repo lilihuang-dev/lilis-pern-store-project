@@ -3,7 +3,7 @@ import { Link, useParams, useNavigate } from "react-router-dom"
 import axios from "axios";
 import noImage from "../assets/image_not_found.png";
 
-const ClockDetails = () =>{
+const ClockDetails = ({handleAddToCart}) =>{
     const [clock, setClock] = useState({});
     const [clocks, setClocks] = useState([]);
     const {id} = useParams();
@@ -33,7 +33,7 @@ const ClockDetails = () =>{
                 <h4>Rating: {("🤩").repeat(clock.rating)}</h4>
                 <h4>{clock.featured ? "Best Choice" : null}</h4>
                 <h3>${clock.price}.00</h3>
-                <Link to="/clocks/cart"><button>Add to Cart</button></Link>
+                <Link to="/clocks/cart"><button onClick={()=>handleAddToCart(clock)}>Add to Cart</button></Link>
             </div>
 
             <div className="clock-card-details">

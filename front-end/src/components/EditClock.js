@@ -15,7 +15,8 @@ const EditClock =()=>{
         price: 0,
         rating: 0,
         featured: false,
-        quantity: 30
+        stock: 30,
+        quantity: 1
     });
     const {id} = useParams();
     const navigate = useNavigate();
@@ -24,7 +25,7 @@ const EditClock =()=>{
         axios.get(`${API}/clocks/${id}`)
             .then(res => setClock(res.data.payload))
             .catch(err => console.log(err));
-    },[])
+    },[id])
 
     const handleTextChange =(e)=>{
         setClock({...clock,[e.target.id]: e.target.value})
@@ -73,16 +74,11 @@ const EditClock =()=>{
                 <label htmlFor="featured">Featured: </label>
                 <input type="checkbox" id="featured" value={clock.featured} onChange={handleCheckBox} checked={clock.featured}/>
 
-                <label htmlFor="quantity">Quantity: </label>
-                <input className="edit-3-quantity" type="number" id="quantity" value={clock.quantity} onChange={handleCheckBox} />
+                <label htmlFor="stock">Stock: </label>
+                <input className="edit-3-stock" type="number" id="stock" value={clock.stock} onChange={handleCheckBox} />
 
                 <div><input className="edit-form-submit" type="submit" /></div>
             </div>
-            
-          
-            
-            
-
         </form>
     )
 }

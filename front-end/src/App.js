@@ -6,17 +6,28 @@ import NavBar from "./components/NavBar";
 import Clocks from "./components/Clocks";
 import ClockDetails from "./components/ClockDetails";
 import Cart from "./components/Cart";
+import Checkout from "./components/Checkout";
 import NewClock from "./components/NewClock";
 import EditClock from "./components/EditClock";
 import Footer from "./components/Footer";
 import FourOFour from "./components/FourOFour";
 
 function App () {
-  //   const [clocks, setClocks] = useState([]);
+    const [clocksInCart, setClocksInCart] = useState([]);
 
-  //   const handleAddToCart =(clock)=> {
-  //     setClocks([...clocks, clock])
-  // }
+    const handleAddToCart =(clock)=> {
+      let newData = clocksInCart;
+        let foundClock =newData.find(clockToFind => clockToFind.id === clock.id)
+          if(!foundClock) {
+            setClocksInCart([...clocksInCart, clock])
+          } else {
+            let copy = {...foundClock, quantity: foundClock.quantity +1};
+            Object.assign(foundClock, copy);
+            setClocksInCart([...newData])
+          }
+    }
+
+  
 
   return (
     <Router>
@@ -26,8 +37,9 @@ function App () {
           <Route path="/" element={<Home />}/>
           <Route path="/clocks" element={<Clocks />}/>
           <Route path="/clocks/new" element={<NewClock />}/>
-          <Route path="/clocks/cart" element={<Cart />}/>
-          <Route path="/clocks/:id" element={<ClockDetails />}/>
+          <Route path="/clocks/cart" element={<Cart clocksInCart={clocksInCart}/>}/>
+          <Route path="/clocks/checkout" element={<Checkout />}/>
+          <Route path="/clocks/:id" element={<ClockDetails handleAddToCart={handleAddToCart}/>}/>
           <Route path="/clocks/:id/edit" element={<EditClock />}/>
           {/* <Route path="/clocks/contact" element={<Contact />}/> */}
           {/* <Route path="/clocks/about" element={<About />}/> */}
