@@ -14,7 +14,8 @@ import FourOFour from "./components/FourOFour";
 
 function App () {
     const [clocksInCart, setClocksInCart] = useState([]);
-
+  
+    let subTotal = 0;
     const handleAddToCart =(clock)=> {
       let newData = clocksInCart;
         let foundClock =newData.find(clockToFind => clockToFind.id === clock.id)
@@ -25,7 +26,14 @@ function App () {
             Object.assign(foundClock, copy);
             setClocksInCart([...newData])
           }
+          // for(let clockInCart of clocksInCart) {
+          //   console.log(clockInCart)
+          //   subTotal= 10;
+            // return subTotal += Number(clockInCart.price) * clockInCart.quantity;
+            // subTotal += clock.price * clock.quantity;
+        // return Math.float(subTotal * 100)/100;
     }
+  
 
   
 
@@ -37,7 +45,7 @@ function App () {
           <Route path="/" element={<Home />}/>
           <Route path="/clocks" element={<Clocks />}/>
           <Route path="/clocks/new" element={<NewClock />}/>
-          <Route path="/clocks/cart" element={<Cart clocksInCart={clocksInCart}/>}/>
+          <Route path="/clocks/cart" element={<Cart clocksInCart={clocksInCart} subTotal={subTotal} />}/>
           <Route path="/clocks/checkout" element={<Checkout />}/>
           <Route path="/clocks/:id" element={<ClockDetails handleAddToCart={handleAddToCart}/>}/>
           <Route path="/clocks/:id/edit" element={<EditClock />}/>

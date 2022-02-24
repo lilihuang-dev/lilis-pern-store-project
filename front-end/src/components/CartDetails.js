@@ -1,14 +1,8 @@
-const CartDetails =({clock},handleTotal)=> {
+const CartDetails =({clock}, {handleRemove})=> {
     
-
-    // const removeClockInCart = (removedClock) => {
-    //     if(removedClock.id ===  clock.id){
-    //       setClocksInCart([...clocksInCart, clock])
-    //     }
-    //   }
-
     const handleNumChange =(e)=>{
-        clock.quantity = e.target.value;
+        e.target.id = e.target.value;
+        console.log(clock.quantity)
     }
 
     return (
@@ -17,10 +11,10 @@ const CartDetails =({clock},handleTotal)=> {
             <td>{clock.price}</td>
             <td>
                 <label htmlFor="quantity">Quantity: </label>
-                <input type="number" id="quantity" value={clock.quantity} onChange={()=>handleTotal(clock.quantity)}/>
+                <input type="number" id="quantity" value={clock.quantity} onChange={handleNumChange}/>
             </td>
-            {/* <th><button onClick="handleRomove">Remove Button</button></th> */}
-            <td><button>Remove</button></td>
+           
+            <td><button onClick={()=>handleRemove(clock)}>Remove</button></td>
         </tr>
     )
 }

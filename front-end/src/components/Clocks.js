@@ -12,12 +12,25 @@ const Clocks = () => {
             .then(res => setClocks(res.data.payload))
             .catch(err => console.log(err));
     },[]);
+
+    const handleChange =()=>{
+
+    }
+
     return (
-        <div className="all-clocks">
+        <div>
+            {/* <select id="product">
+                <option> --- </option>
+                <option value="{clock.color}" onChange={handleChange}>Material</option>
+                <option>Color</option>
+            </select> */}
+            <div className="all-clocks">
             {clocks.map(clock => {
-                return <Clock key={clock.id} clock={clock}/>
+                return <Clock key={clock.id} clock={clock} />
             })}
         </div>
+        </div>
+        
     )
 }
 

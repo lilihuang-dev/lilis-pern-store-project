@@ -155,3 +155,9 @@ nav button {
   background-color: rgb(18, 235, 116);
   font-size:x-large;
 }
+
+.checkout_page {
+  font-weight: bold;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  background-image: url(https://4bgowik9viu406fbr2hsu10z-wpengine.netdna-ssl.com/wp-content/uploads/2020/02/CTA-Orange-Circles.png);
+}

@@ -5,7 +5,6 @@ import noImage from "../assets/image_not_found.png";
 
 const ClockDetails = ({handleAddToCart}) =>{
     const [clock, setClock] = useState({});
-    const [clocks, setClocks] = useState([]);
     const {id} = useParams();
     const navigate = useNavigate();
     const API = process.env.REACT_APP_API_URL;
