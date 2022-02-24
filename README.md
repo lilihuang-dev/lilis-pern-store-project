@@ -1,3 +1,10 @@
+This is the backend link:
+https://lh-cta-be.herokuapp.com/
+
+This is the frontend link:
+
+
+
 # PERN Final Project Template
 
 - select `use this template`

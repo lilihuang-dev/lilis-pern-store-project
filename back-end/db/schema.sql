@@ -17,5 +17,6 @@ CREATE TABLE clocks (
     rating NUMERIC,
     CHECK (rating >=0 AND rating <=5),
     featured BOOLEAN,
-    quantity INTEGER DEFAULT 0
+    stock INTEGER DEFAULT 0,
+    quantity INTEGER DEFAULT 1
 );
