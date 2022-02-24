@@ -2,7 +2,7 @@ This is the backend link:
 https://lh-cta-be.herokuapp.com/
 
 This is the frontend link:
-
+https://pern-final-project-llh-2022.netlify.app/clocks
 
 
 # PERN Final Project Template
