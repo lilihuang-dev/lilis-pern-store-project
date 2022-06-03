@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
 import CartDetails from "./CartDetails";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import {useState} from "react";
 import {Table} from "react-bootstrap";
 
-const Cart =({clocksInCart}, {subTotal})=> {
+const Cart =({clocksInCart, setClocksInCart,subTotal})=> {
+
 
     // let subTotal = 0;
 
@@ -17,10 +19,19 @@ const Cart =({clocksInCart}, {subTotal})=> {
     // const handleInputChange = (clock) => {
     //     setClock
     // }
-    let allClocksInCart = clocksInCart;
+    
     const handleRemove =(clock)=> {
-        allClocksInCart = clocksInCart.filter(storedInCart => storedInCart.id !== clock.id);
+        let filteredClocks = clocksInCart.filter(storedInCart => storedInCart.id !== clock.id);
+        setClocksInCart(filteredClocks)
+        // removeQuantity(clock.id);
       }
+
+    // const handleSubTotal =(price, quantity)=> {
+    //     setTotal(total + Number(price) * quantity);
+
+    // // return Math.float(subTotal * 100)/100;
+    // }
+
 
     return (
         <div>
@@ -35,12 +46,12 @@ const Cart =({clocksInCart}, {subTotal})=> {
                     </tr>
                 </ thead>
             <tbody> 
-                    {allClocksInCart.map(clock =>  {
-                        return <CartDetails key={clock.id} clock={clock} handleRemove={handleRemove}/>
+                    {clocksInCart.map(clock =>  {
+                        return <CartDetails key={clock.id} clock={clock} handleRemove={handleRemove} clocksInCart={clocksInCart} />
                     })}
-                <tr>Subtotal: ${subTotal}.00</tr> 
-                <tr>Tax: ${subTotal * 0.18}.00</tr>
-                <tr>Total: {subTotal*1.18}.00</tr> 
+                <tr>Subtotal: ${subTotal.toFixed(2)}</tr> 
+                <tr>Tax: ${(subTotal * 0.18).toFixed(2)}</tr>
+                <tr>Total: {(subTotal * 1.18).toFixed(2)}</tr> 
                 <tr></tr>
                 <tr>Notice:</tr>
                 <tr>1. Quantity</tr>

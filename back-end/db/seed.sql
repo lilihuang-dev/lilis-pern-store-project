@@ -8,3 +8,23 @@ INSERT INTO clocks (name, description, image, dimensions, color, material, price
 ('Baron Wall Clock','Not just a wall clock, but an ornament','https://i.imgur.com/Yi3gSwG.jpg','60 * 50 CM', 'Black','Metal',100,5,true, 30, 1),
 ('Lux Wall Clock','The clock mechanism runs silent. Metal secure loop backing for easy hang. Suitable for indoor use only. Glam Design.','https://i.imgur.com/UpldvzG.jpg','50 * 50 CM','Gold','Metal',88,4,true,30, 1);
 
+INSERT INTO users (clock_id, user_name, email, password, admin) VALUES
+(),
+(),
+(),
+(),
+(),
+();
+
+
+INSERT INTO reviews (clock_id, reviewer, title, content, rating )
+VALUES
+('1', 'Evan', 'My Favorite', 'GOOD', 4),
+('2', 'Evan', 'My Favorite', 'PERFECT', 5),
+('3', 'Evan', 'My Least Favorite', 'soso', 3),
+('2', 'Juliana', 'I Love Going Here', 'LOVE IT', 5),
+('2', 'David', 'Cool Site', 'NO NO', 1),
+('2', 'Mr. Mingo', 'So Helpful', 'NOT BAD', 3),
+('2', 'Alison', 'A lifesaver!','YES', 4),
+('3', 'Hannah', 'Insert Confetti Emoji Here', 'COOL', 4),
+('3', 'Gabi', 'My Friend Hannah', 'I would like to recommand it', 5);

@@ -1,6 +1,7 @@
 import {  useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import Error from "../Error";
 
 const API = process.env.REACT_APP_API_URL;
 
@@ -33,10 +34,13 @@ const NewClock =()=>{
         axios.post(`${API}/clocks`,clock)
             .then(()=> navigate("/clocks"))
             .catch(err => console.log(err))
+       
     }
 
 
     return (
+        <div>
+        {clock.name.length > 50 ? <Error /> : ""}
     <form onSubmit={handleSubmit} className="new-form">
     <div className="new-form-one">
         <label htmlFor="name">Name: </label>
@@ -78,6 +82,7 @@ const NewClock =()=>{
     
 
 </form>
+</div>
 )
 }
 

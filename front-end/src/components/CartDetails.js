@@ -1,9 +1,21 @@
-const CartDetails =({clock}, {handleRemove})=> {
+// import {useState, useEffect} from "react";
+
+const CartDetails =({clock, handleRemove})=> {
+    // const [quantity,setQuantity] = useState(1);
     
+
     const handleNumChange =(e)=>{
-        e.target.id = e.target.value;
-        console.log(clock.quantity)
+        console.log(e.target.value)
+    //    setQuantity(e.target.value);
     }
+    
+    // useEffect(()=> {
+    //     updatedQuantity(clock.id,quantity);
+    // },[clock, quantity])
+
+    // useEffect(()=> {
+    //     if(orderQuantity) setQuantity(orderQuantity[clock.id]);
+    // },[clock.id])
 
     return (
         <tr>
@@ -11,7 +23,7 @@ const CartDetails =({clock}, {handleRemove})=> {
             <td>{clock.price}</td>
             <td>
                 <label htmlFor="quantity">Quantity: </label>
-                <input type="number" id="quantity" value={clock.quantity} onChange={handleNumChange}/>
+                <input type="number" min = "1" max = {clock.stock} id="quantity" value={clock.quantity} onChange={handleNumChange}/>
             </td>
            
             <td><button onClick={()=>handleRemove(clock)}>Remove</button></td>
