@@ -1,7 +1,7 @@
 import {  useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import Error from "../Error";
+import Error from "./Error";
 
 const API = process.env.REACT_APP_API_URL;
 

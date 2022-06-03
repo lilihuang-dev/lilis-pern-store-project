@@ -34,7 +34,7 @@ const Cart =({clocksInCart, setClocksInCart,subTotal})=> {
 
 
     return (
-        <div>
+        <div className="shopping-cart">
             <Table striped bordered hover>
                 <thead>
                     <h1>Shopping Cart</h1>

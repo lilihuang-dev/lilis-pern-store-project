@@ -8,7 +8,7 @@ export default function NavBar ({logText, setLogText}) {
             <Link to="/clocks"><h1 className="navbar-all-clocks">Wall Clocks</h1></Link>
             <Link to="/clocks/new"><button className="navbar-new-clock">Add New Clock</button></Link>
             <Link to="/clocks/cart"><button>Cart  🛒</button></Link>
-            <Link to="/user/login">
+            <Link to="/users/login">
                 <button>
                     {logText}
                 </button>
