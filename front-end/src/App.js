@@ -23,7 +23,7 @@ function App () {
     const [clocksInCart, setClocksInCart] = useState([]);
     // const [orderQuantity, setOrderQuantity] = useState({});
     // const [quantity,setQuantity] = useState(1);
-    // const [total, setTotal] = useState(0);
+
 
     let subTotal = 0;
     const handleAddToCart =(clock)=> {

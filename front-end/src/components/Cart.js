@@ -1,21 +1,21 @@
 import { Link } from "react-router-dom";
 import CartDetails from "./CartDetails";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {Table} from "react-bootstrap";
 
-const Cart =({clocksInCart, setClocksInCart,subTotal})=> {
+const Cart =({clocksInCart, setClocksInCart})=> {
+    const [subTotal, setSubTotal] = useState(0)
 
 
-    // let subTotal = 0;
+    useEffect(() => {
+        let sub = 0;
+        for(let clock of clocksInCart) {
+            sub += Number(clock.price) * clock.quantity;
+        }
+        setSubTotal(sub);
+    }, [clocksInCart])
 
-    // const handleTotal =(clocksInCart)=> {
-    //     for(let clock of clocksInCart) {
-    //         return subTotal += Number(clock.price) * clock.quantity;
-    //         // subTotal += clock.price * clock.quantity;
-    //     // return Math.float(subTotal * 100)/100;
-    //     }
-    // }
     // const handleInputChange = (clock) => {
     //     setClock
     // }
@@ -23,21 +23,15 @@ const Cart =({clocksInCart, setClocksInCart,subTotal})=> {
     const handleRemove =(clock)=> {
         let filteredClocks = clocksInCart.filter(storedInCart => storedInCart.id !== clock.id);
         setClocksInCart(filteredClocks)
-        // removeQuantity(clock.id);
       }
 
-    // const handleSubTotal =(price, quantity)=> {
-    //     setTotal(total + Number(price) * quantity);
-
-    // // return Math.float(subTotal * 100)/100;
-    // }
 
 
     return (
         <div className="shopping-cart">
+            <h1>Shopping Cart</h1>
             <Table striped bordered hover>
                 <thead>
-                    <h1>Shopping Cart</h1>
                     <tr>
                         <th>Item</th>
                         <th>Price</th>
