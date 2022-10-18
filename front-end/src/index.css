@@ -1,6 +1,6 @@
-* {
+/* * {
   box-sizing: border-box;
-}
+} */
 
 body {
   margin: 0;
@@ -53,10 +53,10 @@ nav button {
   font-weight: bold;
 } */
 
-main {
+/* main {
   position: relative;
   margin: auto;
-}
+} */
 
 footer {
   position: absolute;

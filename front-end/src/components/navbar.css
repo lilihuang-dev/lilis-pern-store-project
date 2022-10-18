@@ -6,13 +6,19 @@
     justify-content: space-between;
     position: relative;
     align-items: center;
+    width: 100%;
   }
+
+  .navbar-homepage-log {
+    align-items: center;
+  }
+  
   
   .navbar-logo {
     width: 100px;
     border-radius: 50%;
-    margin-left: 38px;
-    /* margin-left: 1.5rem; */
+    /* margin-left: 38px; */
+    margin-left: 1.5rem;
   }
   
   /* nav a{
@@ -52,7 +58,6 @@
   
 .navbar-links button {
     color: rgb(57, 116, 116);
-    /* margin-top: 20px; */
     margin-right: 38px;
     font-size: x-large;
     border-radius: 30px;
@@ -64,11 +69,15 @@
   }
   
   .navbar-all-clocks {
+    color:rgb(235, 200, 114);
     font-weight: bolder;
     padding-top: 10px;
-    color:rgb(235, 200, 114);
     text-decoration: none;
     
+  }
+
+  .navbar-all-clocks:hover { 
+    color: rgb(228, 236, 208) ;
   }
 
   .toggle-button {
@@ -95,6 +104,15 @@
         align-items: flex-start;
     }
 
+    .navbar-logo {
+      margin-left: 0px;
+    }
+
+    .navbar-all-clocks {
+      padding-top: 150px;
+      
+    }
+
     .toggle-button {
         display: flex;
     }
@@ -104,22 +122,21 @@
         width: 100%;
     }
 
+    .navbar-links.active{
+      display: inline;
+  }
+
     .navbar-links ul {
-        width: 100%;
-        flex-direction: column;
+        display: flex;
+        justify-content: space-between;
     }
 
     .navbar-links ul li {
-        text-align: center;
+        margin: 0 60px 0 60px;
+        
     }
 
     .navbar-links ul li a {
         padding: .5rem 1rem;
-    }
-
-    .navbar-links .active {
-        display: flex;
-        background-color: red;
-        height: 100px;
     }
 }

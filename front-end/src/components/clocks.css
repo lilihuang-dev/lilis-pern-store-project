@@ -1,31 +1,33 @@
 .clocks-container {
-    margin: auto;
-    padding: auto;
+    display: flex;
+    justify-items: center;
+    /* margin: auto;
+    width: 100%; */
 }
 
 .all-clocks {
-    margin-top: 50px;
+    /* margin-top: 50px; */
     display: grid;
     grid-template-columns: repeat(3,1fr);
   }
 
+@media (max-width: 1200px) {
+    .clocks-container {
+        max-width: fit-content;
+    }
+
+    .all-clocks {
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        margin-left: 100px;
+        margin-right: 100px;
+    }
+}
 
 @media (max-width: 1025px) {
     .all-clocks {
-        display: grid;
-        grid-template-columns: repeat(2,1fr);
-        margin: auto;
+    margin-left: 50px;
+    margin-right: 50px;
     }
 }
 
-@media (max-width: 1200px) {
-    .clocks-container {
-        gap: 30px;
-    }
-
-    .all-clocks {
-        display: grid;
-        grid-template-columns: repeat(2,1fr);
-        margin: 30px;
-    }
-}

@@ -8,7 +8,7 @@ export default function NavBar ({logText, setLogText}) {
     const [burgerBarOpen, setBurgerBarOpen] = useState(false)
 
     function toggleHamburger() {
-        alert("Sidebar Navigation")
+        // alert("Sidebar Navigation")
         setBurgerBarOpen(!burgerBarOpen)
       }
       console.log(burgerBarOpen)
@@ -27,7 +27,7 @@ export default function NavBar ({logText, setLogText}) {
         
 
         <nav className="navbar">
-            <div class="brand-title">
+            <div class="navbar-homepage-log">
                 <Link to="/"><img className="navbar-logo" src="https://thumbs.dreamstime.com/b/wall-clock-icon-color-outline-vector-flat-isolated-234051316.jpg" alt=""/></Link>
             </div>
             <div>
@@ -40,8 +40,8 @@ export default function NavBar ({logText, setLogText}) {
                 <span className="bar"></span>
             </a>
 
-            <div className="navbar-links">
-                <ul className={`${burgerBarOpen ? "active" : ""}`}>
+            <div className={`navbar-links ${burgerBarOpen ? "active" : ""}`}>
+                <ul >
                     
                     {isAdmin && <li>
                         <Link to="/clocks/new"><button className="navbar-new-clock">Add New Clock</button></Link>

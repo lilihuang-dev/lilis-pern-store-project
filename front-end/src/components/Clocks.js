@@ -26,10 +26,10 @@ const Clocks = () => {
                 <option>Color</option>
             </select> */}
             <div className="all-clocks">
-            {clocks.map(clock => {
-                return <Clock key={clock.id} clock={clock} />
-            })}
-        </div>
+                {clocks.map(clock => {
+                    return <Clock key={clock.id} clock={clock} />
+                })}
+            </div>
         </div>
         
     )

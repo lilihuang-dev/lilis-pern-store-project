@@ -68,23 +68,21 @@
       } 
       
       .clock-card {
-        width: 125px;
+        /* width: 125px; */
         box-shadow: 3px 3px 3px 4px rgb(245, 210, 145);
-        margin: auto;
+        margin: 30px 45px;
         padding:1em;
       }
       
-      .clock-details {
+      /* .clock-details {
         margin-left: 25px;;
         padding-left: 30px;
-      }
+      } */
 }
 
 
-@media (max-width: 1025px) {
+/* @media (max-width: 1025px) {
     .clock-card {
-        color: red;
-        background-color: brown;
         margin: auto;
       }
-}
+} */
