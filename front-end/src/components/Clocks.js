@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Clock from "./Clock.js";
+import "./clocks.css";
 
 const API = process.env.REACT_APP_API_URL;
 
@@ -18,7 +19,7 @@ const Clocks = () => {
     }
 
     return (
-        <div>
+        <div className="clocks-container">
             {/* <select id="product">
                 <option> --- </option>
                 <option value="{clock.color}" onChange={handleChange}>Material</option>

@@ -1,0 +1,31 @@
+.clocks-container {
+    margin: auto;
+    padding: auto;
+}
+
+.all-clocks {
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+  }
+
+
+@media (max-width: 1025px) {
+    .all-clocks {
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        margin: auto;
+    }
+}
+
+@media (max-width: 1200px) {
+    .clocks-container {
+        gap: 30px;
+    }
+
+    .all-clocks {
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        margin: 30px;
+    }
+}

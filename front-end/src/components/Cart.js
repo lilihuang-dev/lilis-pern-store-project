@@ -47,14 +47,14 @@ const Cart =({clocksInCart, setClocksInCart})=> {
                 <tr>Tax: ${(subTotal * 0.18).toFixed(2)}</tr>
                 <tr>Total: {(subTotal * 1.18).toFixed(2)}</tr> 
                 <tr></tr>
-                <tr>Notice:</tr>
+                {/* <tr>Notice:</tr>
                 <tr>1. Quantity</tr>
                 <tr> 2. Remove</tr>
                 <tr>3. Subtotal, tax and total</tr>
-                <tr>All above features are not working yet </tr>
+                <tr>All above features are not working yet </tr> */}
             </tbody>   
             </Table>
-            <Link to="/clocks/checkout"><h2><button>Check Out</button></h2></Link>
+            {/* <Link to="/clocks/checkout"><h2><button className="checkoutBtn">Check Out</button></h2></Link> */}
         </div>
     )
 }

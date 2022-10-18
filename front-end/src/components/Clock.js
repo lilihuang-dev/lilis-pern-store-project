@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import noImage from "../assets/image_not_found.png";
+import "./clock.css"
 
 const Clock = ({clock}) => {
     return (
@@ -10,7 +11,7 @@ const Clock = ({clock}) => {
 
             <h3>${clock.price}.00</h3>
 
-            <h5>🍀 Rating: {("🤩").repeat(clock.rating)}</h5>
+            <h5>🍀 Rating: {("❤️").repeat(clock.rating)}</h5>
         </div>
     )
 }
