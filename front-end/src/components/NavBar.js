@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./navbar.css";
-import ReactSearchBox from "react-search-box";
 
 export default function NavBar ({clocks,setClocks,setSearchedClocks}) {
 
