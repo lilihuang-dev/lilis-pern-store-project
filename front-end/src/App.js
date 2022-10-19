@@ -1,5 +1,6 @@
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import { useEffect, useState } from "react";
+import Swal from 'sweetalert2';
 
 import Home from "./components/Home";
 import NavBar from "./components/NavBar";
@@ -27,6 +28,15 @@ function App () {
 
     let subTotal = 0;
     const handleAddToCart =(clock)=> {
+      
+        Swal.fire({
+          title: 'Added to Cart!',
+          text: 'Added to shopping cart successfully.',
+          icon: 'success',
+          confirmButtonText: 'Cool'
+        })
+   
+      
       let newData = clocksInCart;
         let foundClock =newData.find(clockToFind => clockToFind.id === clock.id)
           if(!foundClock) {
@@ -36,47 +46,9 @@ function App () {
             Object.assign(foundClock, copy);
             setClocksInCart([...newData])
           } 
-        // const foundClock = clocksInCart.find(clockToFind => clockToFind.id === clock.id)
-        // if(!foundClock) {
-        //   setClocksInCart([...clocksInCart, clock]);
-        // } 
-        // // else {
-        //   const foundClockQuantity = orderQuantity[clock.id];
-        //   console.log("Hello world!")
-        //   console.log(foundClockQuantity)
-        //   if(foundClockQuantity) {
-        //     setOrderQuantity({...orderQuantity,[clock.id]:Number(foundClockQuantity)+1});
-        //     console.log({...orderQuantity,[clock.id]:Number(foundClockQuantity)+1})
-        //   } else {
-        //     setOrderQuantity(1);
-        // // }
-        // } 
+        
     }
 
-    // const handleQuantity =(value) => {
-    //   setQuantity(value)
-    // }
-
-    // const updatedQuantity = (id,quantity) => {
-    //   setOrderQuantity({...orderQuantity,[id]:quantity})
-    // }
-
-    // const removeQuantity = (id) => {
-    //   let copyOrderQuantity = {...orderQuantity};
-    //   delete copyOrderQuantity[id];
-    //   setOrderQuantity(copyOrderQuantity);
-    // }
-
-    // useEffect(()=> {
-    //   let newArr = [];
-      
-    //   for(let oneClock of clocksInCart) {
-    //     // let subTotal = Math.float(Number(oneClock.price) * Number(orderQuantity[oneClock.id]))
-    //     newArr.push(Number(oneClock.price) * Number(orderQuantity[oneClock.id]) )
-    //   }
-    //   setTotal(newArr.reduce((a,b) => a+b ,0));
-    // },[orderQuantity, clocksInCart.length])
-  
   return (
     <Router>
       <NavBar logText={logText} setLogText={setLogText}/>
@@ -103,32 +75,5 @@ function App () {
 
 
 
-// import { useState, useEffect } from "react";
-// const API = process.env.REACT_APP_API_URL;
-
-// console.log(API);
-// function App() {
-//   const [days, setDays] = useState([]);
-//   useEffect(() => {
-//     axios
-//       .get(`${API}/test`)
-//       .then(
-//         (response) => {
-//           setDays(response.data);
-//         },
-//         (error) => console.log("get", error)
-//       )
-//       .catch((c) => console.warn("catch", c));
-//   }, []);
-//   return (
-//     <div>
-//       <ul>
-//         {days.map((day) => (
-//           <li key={day.name}>{day.name}</li>
-//         ))}
-//       </ul>
-//     </div>
-//   );
-// }
 
 export default App;

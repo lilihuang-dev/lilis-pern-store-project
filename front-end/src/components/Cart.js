@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {useEffect, useState} from "react";
 import {Table} from "react-bootstrap";
 import "./cart.css"
+import Swal from 'sweetalert2';
 
 const Cart =({clocksInCart, setClocksInCart})=> {
     const [subTotal, setSubTotal] = useState(0)
@@ -20,9 +21,15 @@ const Cart =({clocksInCart, setClocksInCart})=> {
     // const handleInputChange = (clock) => {
     //     setClock
     // }
+
     
     const handleRemove =(clock)=> {
-        alert("Removed from shopping cart successfully")
+        Swal.fire({
+            title: 'Delete this item!',
+            text: 'Removed from shopping cart successfully.',
+            icon: 'info',
+            confirmButtonText: 'Confirmed'
+        })
         let filteredClocks = clocksInCart.filter(storedInCart => storedInCart.id !== clock.id);
         setClocksInCart(filteredClocks)
       }
