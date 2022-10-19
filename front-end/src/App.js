@@ -86,7 +86,6 @@ function App () {
           <Route path="/clocks" element={<Clocks />}/>
           <Route path="/clocks/new" element={<NewClock />}/>
           <Route path="/clocks/cart" element={<Cart clocksInCart={clocksInCart} setClocksInCart={setClocksInCart} subTotal={subTotal}/>}/>
-          {/* <Route path="/clocks/cart" element={<Cart clocksInCart={clocksInCart} setClocksInCart={setClocksInCart} orderQuantity = {orderQuantity} updatedQuantity={updatedQuantity} total={total}/>}/> */}
           <Route path="/clocks/checkout" element={<Checkout />}/>
           <Route path="/clocks/:id" element={<ClockDetails handleAddToCart={handleAddToCart}/>}/>
           <Route path="/clocks/:id/edit" element={<EditClock />}/>

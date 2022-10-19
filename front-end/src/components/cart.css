@@ -1,0 +1,21 @@
+.shopping-cart {
+    margin-bottom: 100px;
+    padding: 50px;
+    line-height: 50px;
+  }
+  
+  .shopping-cart th{
+    font-size: x-large;
+  }
+  
+  .shopping-cart tr{
+    font-size: large;
+  }
+  
+  .shopping-cart h1{
+    margin-bottom: 50px;
+  }
+
+  .checkoutBtn {
+    margin-top: 150px;
+  }

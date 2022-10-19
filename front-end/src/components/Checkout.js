@@ -1,14 +1,17 @@
+import "./checkout.css"
 
 const Checkout =()=> {
     return (
         <div className="checkout_page">
             <br/>
-            <h1>We're down for scheduled maintenance 🧰 right now.</h1>
-            <h1>Sorry for any inconvienence.</h1>
-            <h1>Thank you for your patience.</h1>
+            <div className="checkout_page__notice">
+                <h1>We're down for scheduled maintenance 🧰 right now.</h1>
+                <h1>Sorry for any inconvienence.</h1>
+                <h1>Thank you for your patience.</h1>
+            </div>
             <br/>
             <br/>
-            <form>
+            <form className="checkout_page__form">
                 <div>
                 <h4>Full Name</h4>
                 <br/>
@@ -51,7 +54,7 @@ const Checkout =()=> {
                 <input type="email" id="email" name="email" value=""/>
                 <br />
                 <br/>
-                <input type="submit" />
+                <input type="submit" className="checkout_page__submit"/>
             </form>
         </div>
         

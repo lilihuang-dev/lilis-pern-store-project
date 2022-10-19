@@ -14,17 +14,40 @@ const Clocks = () => {
             .catch(err => console.log(err));
     },[]);
 
-    const handleChange =()=>{
-
+    const handleChange =(e)=>{
+        let originalClocks1 = [...clocks]
+        let originalClocks2 = [...clocks]
+        let originalClocks3 = [...clocks]
+        let lowToHigh = originalClocks1.sort((a,b) => a.price - b.price)
+        let highToLow = originalClocks2.sort((a,b) => b.price - a.price)
+        let topRate = originalClocks3.sort((a,b) => Number(b.rating) - Number(a.rating))
+    
+        if(e.target.value === "topRate") {
+            setClocks(topRate)
+        } else if (e.target.value === "highToLow") {
+            setClocks(highToLow)
+        } else if (e.target.value === "lowToHigh") {
+            setClocks(lowToHigh)
+        } 
+        // else if (e.target.value === "no sorted"){
+        //     setClocks(clocks)
+        // }
+        
     }
 
     return (
         <div className="clocks-container">
-            {/* <select id="product">
-                <option> --- </option>
-                <option value="{clock.color}" onChange={handleChange}>Material</option>
-                <option>Color</option>
-            </select> */}
+            
+            <div className="clocks-sort">
+                <span>Sort By:</span>
+                
+                <select id="clocks-select" onChange={handleChange}>
+                    <option value="no sorted"> --- </option>
+                    <option value="topRate">Top Rated</option>
+                    <option value="highToLow">Price: High To Low</option> 
+                    <option value="lowToHigh">Price: Low To High</option> 
+                </select> 
+            </div>
             <div className="all-clocks">
                 {clocks.map(clock => {
                     return <Clock key={clock.id} clock={clock} />

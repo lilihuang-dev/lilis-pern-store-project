@@ -3,6 +3,7 @@ import CartDetails from "./CartDetails";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {useEffect, useState} from "react";
 import {Table} from "react-bootstrap";
+import "./cart.css"
 
 const Cart =({clocksInCart, setClocksInCart})=> {
     const [subTotal, setSubTotal] = useState(0)
@@ -21,6 +22,7 @@ const Cart =({clocksInCart, setClocksInCart})=> {
     // }
     
     const handleRemove =(clock)=> {
+        alert("Removed from shopping cart successfully")
         let filteredClocks = clocksInCart.filter(storedInCart => storedInCart.id !== clock.id);
         setClocksInCart(filteredClocks)
       }
@@ -36,7 +38,7 @@ const Cart =({clocksInCart, setClocksInCart})=> {
                         <th>Item</th>
                         <th>Price</th>
                         <th>Quantity</th>
-                        <th></th>
+                        <th>Remove</th>
                     </tr>
                 </ thead>
             <tbody> 
@@ -54,7 +56,7 @@ const Cart =({clocksInCart, setClocksInCart})=> {
                 <tr>All above features are not working yet </tr> */}
             </tbody>   
             </Table>
-            {/* <Link to="/clocks/checkout"><h2><button className="checkoutBtn">Check Out</button></h2></Link> */}
+            <Link to="/clocks/checkout"><h2><button className="checkoutBtn">Check Out</button></h2></Link>
         </div>
     )
 }
