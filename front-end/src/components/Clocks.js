@@ -5,8 +5,8 @@ import "./clocks.css";
 
 // const API = process.env.REACT_APP_API_URL;
 
-const Clocks = ({clocks,setClocks}) => {
-    // const [clocks, setClocks] = useState([]);
+const Clocks = ({clocks,setClocks,searchedClocks}) => {
+    const [sortedClocks, setSortedClocks] = useState([]);
 
     // useEffect(()=> {
     //     axios.get(`${API}/clocks`)
@@ -18,6 +18,7 @@ const Clocks = ({clocks,setClocks}) => {
         let originalClocks1 = [...clocks]
         let originalClocks2 = [...clocks]
         let originalClocks3 = [...clocks]
+        let originalClocks4 = [...clocks]
         let lowToHigh = originalClocks1.sort((a,b) => a.price - b.price)
         let highToLow = originalClocks2.sort((a,b) => b.price - a.price)
         let topRate = originalClocks3.sort((a,b) => Number(b.rating) - Number(a.rating))
@@ -29,9 +30,9 @@ const Clocks = ({clocks,setClocks}) => {
         } else if (e.target.value === "lowToHigh") {
             setClocks(lowToHigh)
         } 
-        // else if (e.target.value === "no sorted"){
-        //     setClocks(clocks)
-        // }
+        else if (e.target.value === "no sorted"){
+            setClocks(originalClocks4)
+        }
         
     }
 
@@ -49,7 +50,9 @@ const Clocks = ({clocks,setClocks}) => {
                 </select> 
             </div>
             <div className="all-clocks">
-                {clocks.map(clock => {
+                {!searchedClocks.length ? clocks.map(clock => {
+                    return <Clock key={clock.id} clock={clock} />
+                }) : searchedClocks.map(clock => {
                     return <Clock key={clock.id} clock={clock} />
                 })}
             </div>

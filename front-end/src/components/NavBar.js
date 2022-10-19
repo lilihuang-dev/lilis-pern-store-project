@@ -1,31 +1,40 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./navbar.css";
 import ReactSearchBox from "react-search-box";
 
-export default function NavBar ({clocks,setClocks}) {
+export default function NavBar ({clocks,setClocks,setSearchedClocks}) {
 
     const [isAdmin, setIsAdmin] = useState(false)
     const [searchInput, setSearchInput] = useState("");
+    
     const [burgerBarOpen, setBurgerBarOpen] = useState(false)
 
     function toggleHamburger() {
         setBurgerBarOpen(!burgerBarOpen)
     }
 
-    function handleChange(e) {
-        let copyClocks = [...clocks]
-        e.preventDefault();
-        setSearchInput(e.target.value);
-        let input = searchInput.toLowerCase();
-        if(searchInput.length > 0) {
-            let searchedClocks = clocks.filter(clock => (clock.name).toLowerCase().includes(input) || (clock.description).toLowerCase().includes(input));
-            setClocks(searchedClocks)
+        function handleChange(e) {
+            // let copyClocks = [...clocks]
+            e.preventDefault();
+            setSearchInput(e.target.value);
+
+            console.log(searchInput)
+            
         }
 
-        if(searchInput.length === 0) setClocks(copyClocks)
-    }
+    let input = searchInput.toLowerCase();
+    useEffect(() => {
+        // if(searchInput.length > 0) {
+            let filterdClocks = clocks.filter(clock => (clock.name).toLowerCase().includes(input) || (clock.description).toLowerCase().includes(input));
+            setSearchedClocks(filterdClocks)
+        // } 
+        // else {
+        //     setClocks(clocks)
+        // }
+    },[searchInput])
 
+    console.log(clocks)
      
     return (
         <nav className="navbar">

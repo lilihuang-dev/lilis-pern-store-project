@@ -21,6 +21,7 @@ const API = process.env.REACT_APP_API_URL;
 function App () {
 
   const [clocks, setClocks] = useState([]);
+  const [searchedClocks, setSearchedClocks] = useState([]);
 
   // const [logText, setLogText] = useState(
   //   localStorage.getItem("id") ? "Log Out" : "Log In"
@@ -61,11 +62,11 @@ function App () {
 
   return (
     <Router>
-      <NavBar clocks={clocks} setClocks={setClocks}/>
+      <NavBar clocks={clocks} setClocks={setClocks} searchedClocks={searchedClocks} setSearchedClocks={setSearchedClocks}/>
       <main>
         <Routes>
           <Route path="/" element={<Home />}/>
-          <Route path="/clocks" element={<Clocks clocks={clocks} setClocks={setClocks}/>}/>
+          <Route path="/clocks" element={<Clocks clocks={clocks} setClocks={setClocks} searchedClocks={searchedClocks}/>}/>
           <Route path="/clocks/new" element={<NewClock />}/>
           <Route path="/clocks/cart" element={<Cart clocksInCart={clocksInCart} setClocksInCart={setClocksInCart} subTotal={subTotal}/>}/>
           <Route path="/clocks/checkout" element={<Checkout />}/>
