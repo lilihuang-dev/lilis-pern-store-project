@@ -1,15 +1,31 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import "./navbar.css"
+import "./navbar.css";
+import ReactSearchBox from "react-search-box";
 
-export default function NavBar ({logText, setLogText}) {
+export default function NavBar ({clocks,setClocks}) {
 
     const [isAdmin, setIsAdmin] = useState(false)
+    const [searchInput, setSearchInput] = useState("");
     const [burgerBarOpen, setBurgerBarOpen] = useState(false)
 
     function toggleHamburger() {
         setBurgerBarOpen(!burgerBarOpen)
-      }
+    }
+
+    function handleChange(e) {
+        let copyClocks = [...clocks]
+        e.preventDefault();
+        setSearchInput(e.target.value);
+        let input = searchInput.toLowerCase();
+        if(searchInput.length > 0) {
+            let searchedClocks = clocks.filter(clock => (clock.name).toLowerCase().includes(input) || (clock.description).toLowerCase().includes(input));
+            setClocks(searchedClocks)
+        }
+
+        if(searchInput.length === 0) setClocks(copyClocks)
+    }
+
      
     return (
         <nav className="navbar">
@@ -18,6 +34,10 @@ export default function NavBar ({logText, setLogText}) {
             </div>
             <div>
                 <Link to="/clocks" className="navbar-all-clocks"><h1>Happy Shopping</h1></Link>
+            </div>
+            <div className="search">
+                <input type="text" name="search" value={searchInput} onChange={handleChange} placeholder="Search"/>
+                {/* <button type="submit" handleSearchSubmit="">Search</button> */}
             </div>
 
             <a href="#" className="toggle-button" onClick={toggleHamburger}>

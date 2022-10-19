@@ -1,18 +1,18 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
+// import axios from "axios";
 import Clock from "./Clock.js";
 import "./clocks.css";
 
-const API = process.env.REACT_APP_API_URL;
+// const API = process.env.REACT_APP_API_URL;
 
-const Clocks = () => {
-    const [clocks, setClocks] = useState([]);
+const Clocks = ({clocks,setClocks}) => {
+    // const [clocks, setClocks] = useState([]);
 
-    useEffect(()=> {
-        axios.get(`${API}/clocks`)
-            .then(res => setClocks(res.data.payload))
-            .catch(err => console.log(err));
-    },[]);
+    // useEffect(()=> {
+    //     axios.get(`${API}/clocks`)
+    //         .then(res => setClocks(res.data.payload))
+    //         .catch(err => console.log(err));
+    // },[]);
 
     const handleChange =(e)=>{
         let originalClocks1 = [...clocks]

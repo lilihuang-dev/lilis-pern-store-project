@@ -1,6 +1,7 @@
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import { useEffect, useState } from "react";
 import Swal from 'sweetalert2';
+import axios from "axios";
 
 import Home from "./components/Home";
 import NavBar from "./components/NavBar";
@@ -15,16 +16,25 @@ import FourOFour from "./components/FourOFour";
 
 import UserLogIn from "./components/UserLogIn";
 
+const API = process.env.REACT_APP_API_URL;
+
 function App () {
 
-  const [logText, setLogText] = useState(
-    localStorage.getItem("id") ? "Log Out" : "Log In"
-  )
+  const [clocks, setClocks] = useState([]);
+
+  // const [logText, setLogText] = useState(
+  //   localStorage.getItem("id") ? "Log Out" : "Log In"
+  // )
 
     const [clocksInCart, setClocksInCart] = useState([]);
     // const [orderQuantity, setOrderQuantity] = useState({});
     // const [quantity,setQuantity] = useState(1);
 
+    useEffect(()=> {
+      axios.get(`${API}/clocks`)
+          .then(res => setClocks(res.data.payload))
+          .catch(err => console.log(err));
+  },[]);
 
     let subTotal = 0;
     const handleAddToCart =(clock)=> {
@@ -51,11 +61,11 @@ function App () {
 
   return (
     <Router>
-      <NavBar logText={logText} setLogText={setLogText}/>
+      <NavBar clocks={clocks} setClocks={setClocks}/>
       <main>
         <Routes>
           <Route path="/" element={<Home />}/>
-          <Route path="/clocks" element={<Clocks />}/>
+          <Route path="/clocks" element={<Clocks clocks={clocks} setClocks={setClocks}/>}/>
           <Route path="/clocks/new" element={<NewClock />}/>
           <Route path="/clocks/cart" element={<Cart clocksInCart={clocksInCart} setClocksInCart={setClocksInCart} subTotal={subTotal}/>}/>
           <Route path="/clocks/checkout" element={<Checkout />}/>

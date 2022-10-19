@@ -21,14 +21,28 @@
     margin-left: 1.5rem;
   }
   
-  /* nav a{
-    text-decoration: none;
-    font-size: x-large;
-    margin-top: 0px;
-    text-decoration: none;
-    color: rgb(235, 200, 114);
-    font-family: "font-effect-outline";
-  } */
+.search {
+  position: relative;
+  border-radius: 40%;
+  
+}
+
+.search input {
+  border-radius: 10px;
+  border: none;
+  padding: 8px;
+  width: 250px;;
+}
+
+/* .search button {
+  border-radius: 0px 10px 10px 0px;
+  border: none;
+  padding: 8px;
+}
+
+.search button:hover {
+  background-color: rgb(235, 200, 114);
+} */
 
  .navbar-links{
     height: 100%;
