@@ -31,7 +31,9 @@ const Cart =({clocksInCart, setClocksInCart})=> {
             confirmButtonText: 'Confirmed'
         })
         let filteredClocks = clocksInCart.filter(storedInCart => storedInCart.id !== clock.id);
-        setClocksInCart(filteredClocks)
+        setTimeout(() => {
+            setClocksInCart(filteredClocks)
+        }, 2500);
       }
 
 
