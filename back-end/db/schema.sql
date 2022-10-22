@@ -6,7 +6,7 @@ CREATE DATABASE cta_dev;
 -- DROP TABLE IF EXISTS clocks;
 
 CREATE TABLE clocks (
-    id SERIAL PRIMARY KEY, 
+    cid SERIAL PRIMARY KEY, 
     name TEXT NOT NULL,
     description TEXT,
     image TEXT,
@@ -25,19 +25,24 @@ CREATE TABLE clocks (
 
 CREATE TABLE users (
     uid SERIAL PRIMARY KEY,
-    user_name VARCHAR(50) NOT NULL,
+    username VARCHAR(50) NOT NULL,
     email VARCHAR(100) NOT NULL,
-    password TEXT NOT NULL,
-    admin BOOLEAN DEFAULT FALSE
+    password VARCHAR(255) NOT NULL,
+    admin BOOLEAN DEFAULT FALSE,
+    rid INTEGER REFERENCES reviews(rid),
 );
 
 CREATE TABLE reviews (
     rid SERIAL PRIMARY KEY,
-    reviewer TEXT,
-    title TEXT,
-    content TEXT,
+    review TEXT NOT NULL,
+    review_date timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
     rating NUMERIC,
     CHECK (rating >= 0 AND rating <= 5),
-    clock_id INTEGER REFERENCES clocks (id)
+    clock_id INTEGER REFERENCES clocks (id),
     ON DELETE CASCADE
 );
+
+
+-- CREATE TABLE users_clocks (
+--     uid
+-- )

@@ -17,14 +17,14 @@ INSERT INTO users (clock_id, user_name, email, password, admin) VALUES
 ();
 
 
-INSERT INTO reviews (clock_id, reviewer, title, content, rating )
-VALUES
-('1', 'Evan', 'My Favorite', 'GOOD', 4),
-('2', 'Evan', 'My Favorite', 'PERFECT', 5),
-('3', 'Evan', 'My Least Favorite', 'soso', 3),
-('2', 'Juliana', 'I Love Going Here', 'LOVE IT', 5),
-('2', 'David', 'Cool Site', 'NO NO', 1),
-('2', 'Mr. Mingo', 'So Helpful', 'NOT BAD', 3),
-('2', 'Alison', 'A lifesaver!','YES', 4),
-('3', 'Hannah', 'Insert Confetti Emoji Here', 'COOL', 4),
-('3', 'Gabi', 'My Friend Hannah', 'I would like to recommand it', 5);
+INSERT INTO reviews (clock_id, review, review_date, rating ) VALUES
+('1', 'Evan', 'My Favorite', 'July 20 2022 11:59 PM (EDT)', 4),
+('2', 'Evan', 'My Favorite', 'Jun 20 2022 11:59 PM (EDT)', 5),
+('3', 'Evan', 'My Least Favorite', 'Jan 10 2022 11:59 PM (EDT)', 3),
+('2', 'Juliana', 'LOVE IT', 'Oct 20 2022 11:59 PM (EDT)', 5),
+('2', 'David', 'NO NO', 'Jan 20 2022 11:59 PM (EDT)', 1),
+('2', 'Mr. Mingo', 'NOT BAD', 'Aug 18 2022 11:59 PM (EDT)'3),
+('2', 'Alison', 'A lifesaver! YES', 'Feb 10 2022 11:59 PM (EDT)', 4),
+('3', 'Hannah', 'Insert Confetti Emoji Here. COOL', 'Jan 20 2022 10:59 PM (EDT)' 4),
+('3', 'Gabi', 'I would like to recommand it', 'Jan 25 2022 11:59 PM (EDT)'5);
+

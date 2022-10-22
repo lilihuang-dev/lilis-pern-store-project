@@ -9,28 +9,28 @@ const getAllClocks = async() => {
     }
 };
 
-const getOneClock = async(id) => {
+const getOneClock = async(cid) => {
     try {
-        const clock = await db.one("SELECT * FROM clocks WHERE id=$1",id);
+        const clock = await db.one("SELECT * FROM clocks WHERE cid=$1",cid);
         return clock;
     } catch (error) {
         return error;
     }
 };
 
-const deleteClock = async(id) => {
+const deleteClock = async(cid) => {
     try {
-        const deletedClock = await db.one("DELETE FROM clocks WHERE id=$1 RETURNING *",id);
+        const deletedClock = await db.one("DELETE FROM clocks WHERE cid=$1 RETURNING *",cid);
         return deletedClock;
     } catch (error) {
         return error;
     }
 };
 
-const updateClock = async(id, clock) =>{
+const updateClock = async(cid, clock) =>{
     try {
-        const updatedClock = await db.one("UPDATE clocks SET name=$1, description=$2, image=$3, dimensions=$4, color=$5, material=$6, price=$7, rating=$8, featured=$9, stock=$10, quantity=$11 WHERE id=$12 RETURNING *",
-        [clock.name, clock.description, clock.image, clock.dimensions, clock.color, clock.material, clock.price, clock.rating, clock.featured,clock.stock, clock.quantity, id]);
+        const updatedClock = await db.one("UPDATE clocks SET name=$1, description=$2, image=$3, dimensions=$4, color=$5, material=$6, price=$7, rating=$8, featured=$9, stock=$10, quantity=$11 WHERE cid=$12 RETURNING *",
+        [clock.name, clock.description, clock.image, clock.dimensions, clock.color, clock.material, clock.price, clock.rating, clock.featured,clock.stock, clock.quantity, cid]);
         return updatedClock;
     } catch (error) {
         return error;
