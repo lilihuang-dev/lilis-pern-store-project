@@ -1,7 +1,7 @@
 DROP TABLE IF EXISTS clocks;
 
 CREATE TABLE clocks (
-    id SERIAL PRIMARY KEY, 
+    cid SERIAL PRIMARY KEY, 
     name TEXT NOT NULL,
     description TEXT,
     image TEXT,
@@ -12,6 +12,31 @@ CREATE TABLE clocks (
     rating NUMERIC,
     CHECK (rating >=0 AND rating <=5),
     featured BOOLEAN,
-    stock INTEGER DEFAULT 0,
-    quantity INTEGER DEFAULT 1
+    quantity INTEGER DEFAULT 0
 );
+
+DROP TABLE IF EXISTS users;
+
+CREATE TABLE users (
+    uid SERIAL PRIMARY KEY,
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
+    age INT,
+    email VARCHAR(100) NOT NULL,
+    user_name VARCHAR(50) NOT NULL,
+    password VARCHAR(50) NOT NULL,
+    is_admin BOOLEAN DEFAULT FALSE
+);
+
+
+-- DROP TABLE IF EXISTS reviews;
+-- CREATE TABLE reviews (
+--     rid SERIAL PRIMARY KEY,
+--     review TEXT NOT NULL,
+--     review_date timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+--     rating NUMERIC,
+--     CHECK (rating >= 0 AND rating <= 5),
+--     uid INTEGER REFERENCES users(uid),
+--     cid INTEGER REFERENCES clocks(cid),
+--     ON DELETE CASCADE
+-- );
