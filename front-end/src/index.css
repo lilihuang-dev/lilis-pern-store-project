@@ -58,18 +58,22 @@ nav button {
   margin: auto;
 } */
 
-footer {
-  position: absolute;
-}
 
 .homepage {
   margin-top: 70px;
   text-align: center;
   font-size: x-large;
+  width: 100%;
 }
 
 .homepage img {
   width: 600px;
+}
+
+@media (max-width: 800px) {
+  .homepage img {
+    width: 450px;
+  }
 }
 
 /* .all-clocks {

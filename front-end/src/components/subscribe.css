@@ -1,0 +1,92 @@
+.subscribe-section bg-with-black {
+    /* background: linear-gradient(0 deg,rgba(0,0,0,.226),rgba(0,0,0,.226)),url(https://assets.website-files.com/5e6aa7798a5728055c457ebb/5fc533dae851844d08e167e7_tn-%20what%20is%20hal%20time%20pay%20and%20how%20do%20you%20calculate%20it.jpg) no-repeat scroll 50%/cover; */
+    padding: 100px;
+}
+
+.container {
+    width: 100%;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.subscribe-head h2 {
+    letter-spacing: 0;
+    margin: 20px;
+    text-transform: uppercase;
+}
+
+.subscribe-head p {
+    margin: 20px;
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+form {
+    display: block;
+}
+
+.form-section{
+    margin-top: 45px;
+    margin-bottom: 100px;
+}
+
+.form-section input[type=email] {
+    border: 2px solid groove;
+    border-radius: 45px 50px 50px 40px;
+    color: #120404;
+    font-size: 16px;
+    font-weight: bolder;
+    font-style: normal;
+    height: 51px;
+    letter-spacing: 0;
+    text-align: center;
+    width: 460px;
+}
+
+.form-section input[type=submit] {
+    background: #6ecf5f;
+    border: 0;
+    border-radius: 25px;
+    color: #fff;
+    height: 51px;
+    letter-spacing: 0;
+    margin-left: -60px;
+    padding: 0 58px;
+    text-transform: uppercase;
+    font-size: 15px;
+}
+
+
+
+
+@media (max-width: 768px) {
+    .subscribe-head p {
+        font-size: 20px;
+    }
+
+    .form-section input[type=submit] {
+        height: 40px;
+        margin-top: 35px;
+        align-items: center;
+    }
+}
+
+@media (max-width: 576px) {
+    .container {
+        max-width: 540px; 
+    }
+
+    .subscribe-head h2 {
+        font-size: 20px;
+    }
+
+    .subscribe-head p {
+        font-size: 16px;
+    }
+}

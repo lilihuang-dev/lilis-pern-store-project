@@ -1,27 +1,66 @@
-import { Link } from "react-router-dom"
+import React from "react";
+// import { Link } from "react-router-dom";
+import "./footer.css";
 
-const Footer =()=> {
-    return (
-        
-        <nav>
-            <h3>About Us</h3>
+export default function Footer() {
+  return (
+    <div className="footer-dark">
+      <footer>
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-6 col-md-3 item">
+              <h3>About us</h3>
+              <ul>
+                <li>
+                  <a href="#">News</a>
+                </li>
+                <li>
+                  <a href="#">Careers</a>
+                </li>
+                <li>
+                  <a href="#">Mission and Vision</a>
+                </li>
+              </ul>
+            </div>
 
-            <h3>Contact Us</h3>
-            {/* <button>Call us</button>
-            <div>Weekly Hours</div>
-            <div>Mon - Fri: 8AM - Midnight EST</div> */}
-            
-            <h3>Stay connected</h3>
-            {/* <div>Facebook</div>
-            <div>Twitter</div> */}
+            <div class="col-sm-6 col-md-3 item">
+              <h3>Help</h3>
+              <ul>
+                <li>
+                  <a href="#">Policies</a>
+                </li>
+                <li>
+                  <a href="#!">Returns</a>
+                </li>
+                <li>
+                  <a href="#!">Seller Center</a>
+                </li>
+              </ul>
+            </div>
 
-            {/* <Link to=""><h3>Contact us</h3></Link>
-            <Link to=""><h3>About us</h3></Link>
-            <Link to=""><h3>Stay connected</h3></Link> */}
-        </nav>
+            <div className="col-md-6 item text">
+              <h3>Contact Us</h3>
+              <p>Happy Clocks</p>
+              <p>168 West 168th street, #123</p>
+              <p>New York, NY 1234</p>
+            </div>
 
-    )
+            {/* <div class="col item social">
+              <a href="#!" className="fa fa-facebook">
+                {null}
+              </a>
+              <a href="#!" className="fa fa-twitter">
+                {null}
+              </a>
+              <a href="#!" className="fa fa-linkedin">
+                {null}
+              </a>
+            </div> */}
+          </div>
+
+          <p class="copyright">Copyright Happy_Clocks.com 2022. All rights reserved.</p>
+        </div>
+      </footer>
+    </div>
+  );
 }
-
-
-export default Footer;
