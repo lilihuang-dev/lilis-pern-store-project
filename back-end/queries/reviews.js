@@ -1,5 +1,8 @@
 const db = require("../db/dbConfig.js");
 
+// create Order table
+// before the user get access to write the reviews, user needs to sign up and login, and checkout.
+
 const getAllReviews = async (clock_id) => {
     try {
         const allReviews = await db.any(

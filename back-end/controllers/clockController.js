@@ -17,13 +17,16 @@ clocks.get("/", async(req, res) => {
     }
 });
 
-clocks.get("/:id", async(req, res) => {
-    const {id} = req.params;
+clocks.get("/:cid", async(req, res) => {
+    console.log("21",req.params)
+    const {cid} = req.params;
+    console.log("controller",cid)
     try {
-        const oneClock = await getOneClock(id);
+        const oneClock = await getOneClock(cid);
+        console.log(oneClock)
         let truthyData = {success: true, payload: oneClock};
         let falsyData = {success: false, payload: "Clock not found"};
-        if(oneClock.id) {
+        if(oneClock.cid) {
             res.status(200).json(truthyData);
         } else {
             res.status(404).json(falsyData);

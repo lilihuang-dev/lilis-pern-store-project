@@ -17,30 +17,40 @@ CREATE TABLE clocks (
     rating NUMERIC,
     CHECK (rating >=0 AND rating <=5),
     featured BOOLEAN,
-    stock INTEGER DEFAULT 0,
-    quantity INTEGER DEFAULT 1
+    quantity INTEGER DEFAULT 0
 );
-
--- DROP TABLE IF EXISTS users;
 
 CREATE TABLE users (
     uid SERIAL PRIMARY KEY,
-    username VARCHAR(50) NOT NULL,
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
+    age INT,
     email VARCHAR(100) NOT NULL,
-    password VARCHAR(255) NOT NULL,
-    admin BOOLEAN DEFAULT FALSE,
-    rid INTEGER REFERENCES reviews(rid),
+    user_name VARCHAR(50) NOT NULL,
+    password VARCHAR(50) NOT NULL,
+    is_admin BOOLEAN DEFAULT FALSE
 );
 
-CREATE TABLE reviews (
-    rid SERIAL PRIMARY KEY,
-    review TEXT NOT NULL,
-    review_date timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    rating NUMERIC,
-    CHECK (rating >= 0 AND rating <= 5),
-    clock_id INTEGER REFERENCES clocks (id),
-    ON DELETE CASCADE
-);
+
+
+-- CREATE TABLE reviews (
+--     rid SERIAL PRIMARY KEY,
+--     review TEXT NOT NULL,
+--     review_date timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+--     rating NUMERIC,
+--     CHECK (rating >= 0 AND rating <= 5),
+--     uid INTEGER REFERENCES users(uid),
+--     cid INTEGER REFERENCES clocks(cid),
+--     ON DELETE CASCADE
+-- );
+
+-- DROP TABLE IF EXISTS users;
+
+
+
+
+
+
 
 
 -- CREATE TABLE users_clocks (
