@@ -5,8 +5,8 @@ import "./clocks.css";
 
 // const API = process.env.REACT_APP_API_URL;
 
-const Clocks = ({clocks,setClocks,searchedClocks}) => {
-    const [sortedClocks, setSortedClocks] = useState([]);
+const Clocks = ({clocks, setClocks, searchedClocks, originalClocks}) => {
+    // const [sortedClocks, setSortedClocks] = useState([...clocks]);
 
     // useEffect(()=> {
     //     axios.get(`${API}/clocks`)
@@ -15,24 +15,35 @@ const Clocks = ({clocks,setClocks,searchedClocks}) => {
     // },[]);
 
     const handleChange =(e)=>{
-        let originalClocks1 = [...clocks]
-        let originalClocks2 = [...clocks]
-        let originalClocks3 = [...clocks]
-        let originalClocks4 = [...clocks]
-        let lowToHigh = originalClocks1.sort((a,b) => a.price - b.price)
-        let highToLow = originalClocks2.sort((a,b) => b.price - a.price)
-        let topRate = originalClocks3.sort((a,b) => Number(b.rating) - Number(a.rating))
-    
-        if(e.target.value === "topRate") {
-            setClocks(topRate)
-        } else if (e.target.value === "highToLow") {
-            setClocks(highToLow)
-        } else if (e.target.value === "lowToHigh") {
-            setClocks(lowToHigh)
-        } 
-        else if (e.target.value === "no sorted"){
-            setClocks(originalClocks4)
+        let copyClocks = [...clocks];
+
+        switch (e.target.value) {
+            case "lowToHigh": 
+                copyClocks.sort((a,b) => a.price - b.price);
+                setClocks(copyClocks);
+                break;
+            case "highToLow": 
+                copyClocks.sort((a,b) => b.price - a.price);
+                setClocks(copyClocks);
+                break;
+            case "topRate": 
+                copyClocks.sort((a,b) => Number(b.rating) - Number(a.rating));
+                setClocks(copyClocks);
+                break;
+            default:
+                setClocks(originalClocks);
         }
+
+        // if(e.target.value === "topRate") {
+        //     setClocks(topRate)
+        // } else if (e.target.value === "highToLow") {
+        //     setClocks(highToLow)
+        // } else if (e.target.value === "lowToHigh") {
+        //     setClocks(lowToHigh)
+        // } 
+        // else if (e.target.value === "no sorted"){
+        //     setClocks(originalClocks)
+        // }
         
     }
 
@@ -51,9 +62,9 @@ const Clocks = ({clocks,setClocks,searchedClocks}) => {
             </div>
             <div className="all-clocks">
                 {!searchedClocks.length ? clocks.map(clock => {
-                    return <Clock key={clock.id} clock={clock} />
+                    return <Clock key={clock.cid} clock={clock} />
                 }) : searchedClocks.map(clock => {
-                    return <Clock key={clock.id} clock={clock} />
+                    return <Clock key={clock.cid} clock={clock} />
                 })}
             </div>
         </div>

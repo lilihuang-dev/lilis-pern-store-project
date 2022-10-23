@@ -7,7 +7,7 @@ const Clock = ({clock}) => {
         <div className="clock-card">
             <img className="clock-card-img" src={clock.image ? clock.image : noImage} alt={clock.name} />
 
-            <Link to={`/clocks/${clock.id}`}><h2 className="clock-card-name">{clock.name}</h2></Link>
+            <Link to={`/clocks/${clock.cid}`}><h2 className="clock-card-name">{clock.name}</h2></Link>
 
             <h3>${clock.price}.00</h3>
 

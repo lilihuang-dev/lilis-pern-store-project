@@ -6,18 +6,19 @@ import noImage from "../assets/image_not_found.png";
 
 const ClockDetails = ({handleAddToCart}) =>{
     const [clock, setClock] = useState({});
-    const {id} = useParams();
+    const {cid} = useParams();
     const navigate = useNavigate();
     const API = process.env.REACT_APP_API_URL;
     
     useEffect(()=> {
-        axios.get(`${API}/clocks/${id}`)
+        console.log(cid)
+        axios.get(`${API}/clocks/${cid}`)
         .then(res => setClock(res.data.payload))
         .catch(err => console.log(err));
-    },[id, API])
+    },[cid, API])
 
     const handleDelete =()=>{
-        axios.delete(`${API}/clocks/${id}`)
+        axios.delete(`${API}/clocks/${cid}`)
             .then(()=> navigate("/clocks"))
             .catch(err => console.log(err));
     }
@@ -50,7 +51,7 @@ const ClockDetails = ({handleAddToCart}) =>{
           
             <div className="clock-card-navs">
                 <Link to="/clocks"><button>Back</button></Link>
-                <Link to={`/clocks/${id}/edit`}><button>Edit</button></Link>
+                <Link to={`/clocks/${cid}/edit`}><button>Edit</button></Link>
                 <div><button onClick={handleDelete}>Delete</button></div>
             </div>
         </div>

@@ -21,6 +21,7 @@ const API = process.env.REACT_APP_API_URL;
 function App () {
 
   const [clocks, setClocks] = useState([]);
+  const [originalClocks, setOriginalClocks] = useState([]);
   const [searchedClocks, setSearchedClocks] = useState([]);
 
   // const [logText, setLogText] = useState(
@@ -33,7 +34,10 @@ function App () {
 
     useEffect(()=> {
       axios.get(`${API}/clocks`)
-          .then(res => setClocks(res.data.payload))
+          .then(res => {
+            setClocks(res.data.payload);
+            setOriginalClocks(res.data.payload);
+          })
           .catch(err => console.log(err));
   },[]);
 
@@ -44,6 +48,7 @@ function App () {
           title: 'Added to Cart!',
           text: 'Added to shopping cart successfully.',
           icon: 'success',
+          timer: 2000,
           confirmButtonText: 'Cool'
         })
    
@@ -66,12 +71,12 @@ function App () {
       <main>
         <Routes>
           <Route path="/" element={<Home />}/>
-          <Route path="/clocks" element={<Clocks clocks={clocks} setClocks={setClocks} searchedClocks={searchedClocks}/>}/>
+          <Route path="/clocks" element={<Clocks clocks={clocks} setClocks={setClocks} originalClocks={originalClocks} searchedClocks={searchedClocks}/>}/>
           <Route path="/clocks/new" element={<NewClock />}/>
           <Route path="/clocks/cart" element={<Cart clocksInCart={clocksInCart} setClocksInCart={setClocksInCart} subTotal={subTotal}/>}/>
           <Route path="/clocks/checkout" element={<Checkout />}/>
-          <Route path="/clocks/:id" element={<ClockDetails handleAddToCart={handleAddToCart}/>}/>
-          <Route path="/clocks/:id/edit" element={<EditClock />}/>
+          <Route path="/clocks/:cid" element={<ClockDetails handleAddToCart={handleAddToCart}/>}/>
+          <Route path="/clocks/:cid/edit" element={<EditClock />}/>
           {/* <Route path="/clocks/contact" element={<Contact />}/> */}
           {/* <Route path="/clocks/about" element={<About />}/> */}
 

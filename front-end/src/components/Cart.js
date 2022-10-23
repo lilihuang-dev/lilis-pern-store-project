@@ -28,6 +28,7 @@ const Cart =({clocksInCart, setClocksInCart})=> {
             title: 'Delete this item!',
             text: 'Removed from shopping cart successfully.',
             icon: 'info',
+            timer: 2000,
             confirmButtonText: 'Confirmed'
         })
         let filteredClocks = clocksInCart.filter(storedInCart => storedInCart.id !== clock.id);

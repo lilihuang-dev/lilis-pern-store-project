@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import Card from "react-bootstrap/Card";
 import { Button } from 'react-bootstrap';
-import {useNavigate} from "react-router-dom";
+import {useParams, useNavigate} from "react-router-dom";
 
+const API = process.env.REACT_APP_API_URL;
 
 function UserLogin () {
     const [user,setUser] = useState({
@@ -19,7 +21,7 @@ function UserLogin () {
     const handleSubmit =(e)=> {
         e.preventDefault();
         // JUST FOR TEST, NOT DONE YET
-        navigate("/")
+        navigate("/clocks")
     }
 
     return (

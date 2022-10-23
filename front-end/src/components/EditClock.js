@@ -18,23 +18,23 @@ const EditClock =()=>{
         stock: 30,
         quantity: 1
     });
-    const {id} = useParams();
+    const {cid} = useParams();
     const navigate = useNavigate();
 
     useEffect(()=>{
-        axios.get(`${API}/clocks/${id}`)
+        axios.get(`${API}/clocks/${cid}`)
             .then(res => setClock(res.data.payload))
             .catch(err => console.log(err));
-    },[id])
+    },[cid])
 
     const handleTextChange =(e)=>{
-        setClock({...clock,[e.target.id]: e.target.value})
+        setClock({...clock,[e.target.cid]: e.target.value})
     }
 
     const handleSubmit =(e)=>{
         e.preventDefault();
-        axios.put(`${API}/clocks/${id}`,clock)
-            .then(()=> navigate(`/clocks/${id}`))
+        axios.put(`${API}/clocks/${cid}`,clock)
+            .then(()=> navigate(`/clocks/${cid}`))
             .catch(err => console.log(err))
     }
 

@@ -45,7 +45,6 @@ export default function NavBar ({clocks,setClocks,setSearchedClocks}) {
             </div>
             <div className="search">
                 <input type="text" name="search" value={searchInput} onChange={handleChange} placeholder="Search"/>
-                {/* <button type="submit" handleSearchSubmit="">Search</button> */}
             </div>
 
             <a href="#" className="toggle-button" onClick={toggleHamburger}>
