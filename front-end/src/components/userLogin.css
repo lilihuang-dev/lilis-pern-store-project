@@ -1,0 +1,22 @@
+.userLogin-container {
+    /* width: 100%; */
+    /* border: 5px solid green; */
+    /* background-color: red; */
+    height: 100%;
+  }
+
+.login-card button{
+    background-color: rgb(149, 157, 56);
+    font-weight: bold;
+  }
+
+.login-card {
+    margin: auto;
+    margin-top: 100px;
+    margin-bottom: 120px;
+    padding:50px;
+    line-height: 50px;
+    font-weight: bolder;
+    box-shadow: 20px 20px rgb(129, 157, 63);
+  }
+

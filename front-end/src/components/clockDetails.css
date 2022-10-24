@@ -1,0 +1,39 @@
+@media (max-width: 768px) {
+    .clock-details {
+        max-width: 1200px;
+    }
+
+    .clock-card-title {
+        font-size: x-small;
+        max-width: 300px;
+    }
+
+    .clock-card-title button{
+        font-size: larger;
+        margin-top: 12px;
+    }
+
+
+    .clock-card-details {
+        font-size: x-small;
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 540px) {
+    .clock-details {
+        display: block;
+        margin: 150px;
+    }
+
+    .clock-card-title, .clock-card-details {
+        margin-top: 60px;
+    }
+
+    .clock-card-navs {
+        margin: auto;
+        margin-top: 100px;
+    }
+
+  
+}

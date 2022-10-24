@@ -1,43 +1,39 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./navbar.css";
 
 export default function NavBar ({clocks,setClocks,setSearchedClocks}) {
 
     const [isAdmin, setIsAdmin] = useState(false)
     const [searchInput, setSearchInput] = useState("");
-    
     const [burgerBarOpen, setBurgerBarOpen] = useState(false)
+    const navigate = useNavigate();
 
     function toggleHamburger() {
         setBurgerBarOpen(!burgerBarOpen)
     }
 
         function handleChange(e) {
-            // let copyClocks = [...clocks]
+          
             e.preventDefault();
             setSearchInput(e.target.value);
 
-            console.log(searchInput)
+            navigate("/clocks")
             
         }
 
     let input = searchInput.toLowerCase();
     useEffect(() => {
-        // if(searchInput.length > 0) {
+        
             let filterdClocks = clocks.filter(clock => (clock.name).toLowerCase().includes(input) || (clock.description).toLowerCase().includes(input));
             setSearchedClocks(filterdClocks)
-        // } 
-        // else {
-        //     setClocks(clocks)
-        // }
+        
     },[searchInput])
 
-    console.log(clocks)
      
     return (
         <nav className="navbar">
-            <div class="navbar-homepage-log">
+            <div className="navbar-homepage-log">
                 <Link to="/"><img className="navbar-logo" src="https://thumbs.dreamstime.com/b/wall-clock-icon-color-outline-vector-flat-isolated-234051316.jpg" alt=""/></Link>
             </div>
             <div>

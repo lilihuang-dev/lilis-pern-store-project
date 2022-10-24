@@ -6,9 +6,9 @@ export default function Footer() {
   return (
     <div className="footer-dark">
       <footer>
-        <div class="container">
-          <div class="row">
-            <div class="col-sm-6 col-md-3 item">
+        <div className="container">
+          <div className="row">
+            <div className="col-sm-6 col-md-3 item">
               <h3>About us</h3>
               <ul>
                 <li>
@@ -23,7 +23,7 @@ export default function Footer() {
               </ul>
             </div>
 
-            <div class="col-sm-6 col-md-3 item">
+            <div className="col-sm-6 col-md-3 item">
               <h3>Help</h3>
               <ul>
                 <li>
@@ -58,7 +58,7 @@ export default function Footer() {
             </div> */}
           </div>
 
-          <p class="copyright">Copyright Happy_Clocks.com 2022. All rights reserved.</p>
+          <p className="copyright">Copyright Happy_Clocks.com 2022. All rights reserved.</p>
         </div>
       </footer>
     </div>

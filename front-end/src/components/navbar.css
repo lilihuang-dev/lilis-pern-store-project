@@ -34,16 +34,6 @@
   width: 250px;;
 }
 
-/* .search button {
-  border-radius: 0px 10px 10px 0px;
-  border: none;
-  padding: 8px;
-}
-
-.search button:hover {
-  background-color: rgb(235, 200, 114);
-} */
-
  .navbar-links{
     height: 100%;
   }
@@ -115,11 +105,6 @@
 @media (max-width: 800px) {
     .navbar {
         flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .navbar-logo {
-      margin-left: 0px;
     }
 
     .navbar-all-clocks {

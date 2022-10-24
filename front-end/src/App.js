@@ -16,6 +16,7 @@ import FourOFour from "./components/FourOFour";
 
 import UserLogIn from "./components/UserLogIn";
 
+
 const API = process.env.REACT_APP_API_URL;
 
 function App () {
@@ -29,8 +30,7 @@ function App () {
   // )
 
     const [clocksInCart, setClocksInCart] = useState([]);
-    // const [orderQuantity, setOrderQuantity] = useState({});
-    // const [quantity,setQuantity] = useState(1);
+ 
 
     useEffect(()=> {
       axios.get(`${API}/clocks`)
@@ -41,8 +41,7 @@ function App () {
           .catch(err => console.log(err));
   },[]);
 
-    let subTotal = 0;
-    const handleAddToCart =(clock)=> {
+    const handleAddToCart =(addedClock)=> {
       
         Swal.fire({
           title: 'Added to Cart!',
@@ -52,14 +51,14 @@ function App () {
           confirmButtonText: 'Cool'
         })
    
-      
-      let newData = clocksInCart;
-        let foundClock =newData.find(clockToFind => clockToFind.id === clock.id)
+      let sameClocks;
+      let newData = [...clocksInCart];
+        let foundClock =newData.find(clockToFind => clockToFind.cid === addedClock.cid)
           if(!foundClock) {
-            setClocksInCart([...clocksInCart, clock])
+            setClocksInCart([...clocksInCart, addedClock])
           } else {
-            let copy = {...foundClock, quantity: foundClock.quantity +1};
-            Object.assign(foundClock, copy);
+            sameClocks = {...foundClock, quantity: foundClock.quantity +1};
+            Object.assign(foundClock, sameClocks);
             setClocksInCart([...newData])
           } 
         
@@ -73,13 +72,10 @@ function App () {
           <Route path="/" element={<Home />}/>
           <Route path="/clocks" element={<Clocks clocks={clocks} setClocks={setClocks} originalClocks={originalClocks} searchedClocks={searchedClocks}/>}/>
           <Route path="/clocks/new" element={<NewClock />}/>
-          <Route path="/clocks/cart" element={<Cart clocksInCart={clocksInCart} setClocksInCart={setClocksInCart} subTotal={subTotal}/>}/>
+          <Route path="/clocks/cart" element={<Cart clocksInCart={clocksInCart} setClocksInCart={setClocksInCart} />}/>
           <Route path="/clocks/checkout" element={<Checkout />}/>
           <Route path="/clocks/:cid" element={<ClockDetails handleAddToCart={handleAddToCart}/>}/>
           <Route path="/clocks/:cid/edit" element={<EditClock />}/>
-          {/* <Route path="/clocks/contact" element={<Contact />}/> */}
-          {/* <Route path="/clocks/about" element={<About />}/> */}
-
           <Route path="/users/login" element={<UserLogIn />}/>
           <Route path="*" element={<FourOFour />}/>
         </Routes>

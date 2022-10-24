@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 
@@ -27,14 +27,19 @@ const EditClock =()=>{
             .catch(err => console.log(err));
     },[cid])
 
+
     const handleTextChange =(e)=>{
-        setClock({...clock,[e.target.cid]: e.target.value})
+        setClock({...clock, [e.target.id]: e.target.value})
     }
 
     const handleSubmit =(e)=>{
         e.preventDefault();
+    
         axios.put(`${API}/clocks/${cid}`,clock)
-            .then(()=> navigate(`/clocks/${cid}`))
+            .then(()=> {
+
+                navigate(`/clocks/${cid}`)
+            })
             .catch(err => console.log(err))
     }
 
