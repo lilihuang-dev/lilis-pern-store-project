@@ -1,11 +1,10 @@
 const db = require("../db/dbConfig.js");
-
+const bcrypt = require("bcrypt");
 
 // for admin only
 const getAllUsers = async () => {
     try {
         var users = await db.any("SELECT * FROM users");
-        console.log("Query All Users", users)
         return users;
     } catch (error) {
         return error;
@@ -33,7 +32,7 @@ const createUser = async (user) => {
              user.age,
              user.email,
              user.user_name,
-             user.password,
+             bcrypt.hash(user.password),
              user.is_admin ? true : false,
             ]
         );

@@ -36,13 +36,13 @@ clocks.get("/:cid", async(req, res) => {
     }
 });
 
-clocks.delete("/:id", async(req, res) =>{
-    const {id} = req.params;
+clocks.delete("/:cid", async(req, res) =>{
+    const {cid} = req.params;
     try {
-        const deletedClock = await deleteClock(id);
+        const deletedClock = await deleteClock(cid);
         let truthyData = {success: true, payload: deletedClock};
         let falsyData = {success: false, payload: "Clock not found"};
-        if(deletedClock.id) {
+        if(deletedClock.cid) {
             res.status(200).json(truthyData);
         } else {
             res.status(404).json(falsyData);
@@ -52,14 +52,14 @@ clocks.delete("/:id", async(req, res) =>{
     }
 });
 
-clocks.put("/:id", async(req, res) => {
-    const {id} = req.params;
+clocks.put("/:cid", async(req, res) => {
+    const {cid} = req.params;
     const {body} = req;
     try {
-        const updatedClock = await updateClock(id, body);
+        const updatedClock = await updateClock(cid, body);
         let truthyData = {success: true, payload: updatedClock};
         let falsyData = {success: false, payload: "Clock not found"};
-        if(updatedClock.id) {
+        if(updatedClock.cid) {
             res.status(200).json(truthyData);
         } else {
             res.status(404).json(falsyData);
@@ -76,7 +76,7 @@ clocks.post("/", async(req, res)=>{
         const createdClock = await createClock(body);
         let truthyData = {success: true, payload: createdClock};
         let falsyData = {success: false, payload: "Clock creation error"};
-        if(createdClock.id) {
+        if(createdClock.cid) {
             res.status(200).json(truthyData);
         } else {
             res.status(404).json(falsyData);
