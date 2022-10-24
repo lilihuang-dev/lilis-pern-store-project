@@ -1,3 +1,14 @@
+.clock-card {
+  width: 325px;
+  box-shadow: 3px 3px 3px 4px rgb(245, 210, 145);
+  margin: 4em;
+  padding:1em;
+}
+
+.clock-card a {
+  text-decoration: none;
+}
+
 .clock-card-img {
     width: 300px;
     height: 330px;
@@ -5,77 +16,29 @@
     border-radius: 1px 0 3px 4px;
     grid-area: card-img;
     margin-top: 30px;
-  }
-  
-  .clock-card-title {
-    grid-area: card-title;
-  }
-  
-  .clock-card-details {
-    grid-area: card-details;
-    width: 700px;
-  } 
+}
 
-  .addedBtn {
-    margin-right: 25px;
-  }
-  
-  .clock-card-navs {
-    grid-area: card-navs;
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .clock-card-navs * {
-    border: 3px solid olivedrab;
-    width: 100px;
-    font-size: large;
-    background-color: rgb(168, 199, 95);
-  } 
-  
-  .clock-card {
-    width: 325px;
-    box-shadow: 3px 3px 3px 4px rgb(245, 210, 145);
-    margin: 4em;
-    padding:1em;
-  }
-  
-  .clock-details {
-    color: rgb(33, 92, 5);
-    display: grid;
-    grid-template-areas: 
-    "card-img card-title"
-    "card-img card-details"
-    "card-navs card-navs";
-    margin: 60px;
-    gap: 50px;
-  } 
+.clock-card-name:hover {
+    transition: 0.5s;
+    transform: scale(1.1);
+}
 
 
-  @media (max-width: 1200px) {
-    .clock-card-img {
-        width: 270px;
-        height: 270px;
-        border: 4mm ridge rgb(245, 210, 145);
-        border-radius: 1px 0 3px 4px;
-        grid-area: card-img;
-        margin-top: 10px;
-      }
+@media (max-width: 1200px) {
+  .clock-card-img {
+      width: 270px;
+      height: 270px;
+      border: 4mm ridge rgb(245, 210, 145);
+      border-radius: 1px 0 3px 4px;
+      grid-area: card-img;
+      margin-top: 10px;
+    }
+  
     
-      
-      .clock-card-details {
-        width: 450px;
-      } 
-      
-      .clock-card-navs {
-        margin: 60px;;
-      } 
-      
-      .clock-card {
-        /* width: 125px; */
-        box-shadow: 3px 3px 3px 4px rgb(245, 210, 145);
-        margin: 30px 45px;
-        padding:1em;
-      }
+    .clock-card {
+      box-shadow: 3px 3px 3px 4px rgb(245, 210, 145);
+      margin: 30px 45px;
+      padding:1em;
+    }
 }
 

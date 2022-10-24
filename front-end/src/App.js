@@ -74,8 +74,8 @@ function App () {
           <Route path="/clocks/new" element={<NewClock />}/>
           <Route path="/clocks/cart" element={<Cart clocksInCart={clocksInCart} setClocksInCart={setClocksInCart} />}/>
           <Route path="/clocks/checkout" element={<Checkout />}/>
-          <Route path="/clocks/:cid" element={<ClockDetails handleAddToCart={handleAddToCart}/>}/>
-          <Route path="/clocks/:cid/edit" element={<EditClock />}/>
+          <Route path="/clocks/:cid" element={<ClockDetails handleAddToCart={handleAddToCart} setClocks={setClocks} />}/>
+          <Route path="/clocks/:cid/edit" element={<EditClock setClocks={setClocks}/>}/>
           <Route path="/users/login" element={<UserLogIn />}/>
           <Route path="*" element={<FourOFour />}/>
         </Routes>

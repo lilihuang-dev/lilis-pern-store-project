@@ -1,3 +1,53 @@
+.clock-card-title {
+    grid-area: card-title;
+  }
+  
+  .clock-card-details {
+    grid-area: card-details;
+    width: 700px;
+  } 
+
+  .clock-details {
+    color: rgb(33, 92, 5);
+    display: grid;
+    grid-template-areas: 
+    "card-img card-title"
+    "card-img card-details"
+    "card-navs card-navs";
+    margin: 60px;
+    gap: 50px;
+  } 
+
+  .addedBtn {
+    margin-right: 25px;
+  }
+
+  .clock-card-navs {
+    grid-area: card-navs;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .clock-card-navs * {
+    border: 3px solid olivedrab;
+    width: 100px;
+    font-size: large;
+    background-color: rgb(168, 199, 95);
+  } 
+
+  @media (max-width: 1200px) {
+      .clock-card-details {
+        width: 450px;
+      } 
+      
+      .clock-card-navs {
+        margin: 60px;;
+      } 
+    
+}
+
+
+
 @media (max-width: 768px) {
     .clock-details {
         max-width: 1200px;

@@ -5,7 +5,7 @@ import "./clockDetails.css"
 import noImage from "../assets/image_not_found.png";
 
 
-const ClockDetails = ({handleAddToCart}) =>{
+const ClockDetails = ({handleAddToCart, setClocks}) =>{
     const [clock, setClock] = useState({});
     const {cid} = useParams();
     const navigate = useNavigate();
@@ -20,8 +20,13 @@ const ClockDetails = ({handleAddToCart}) =>{
 
     const handleDelete =()=>{
         axios.delete(`${API}/clocks/${cid}`)
-            .then(()=> navigate("/clocks"))
-            .catch(err => console.log(err));
+        .then(()=> {
+            axios.get(`${API}/clocks`)
+            .then(res => setClocks(res.data.payload))
+            
+            navigate(`/clocks`)
+        })
+        .catch(err => console.log(err));
     }
 
     

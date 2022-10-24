@@ -4,7 +4,7 @@ import axios from "axios";
 
 const API = process.env.REACT_APP_API_URL;
 
-const EditClock =()=>{
+const EditClock =({setClocks})=>{
     const [clock, setClock] = useState({
         name:"",
         description:"",
@@ -37,7 +37,9 @@ const EditClock =()=>{
     
         axios.put(`${API}/clocks/${cid}`,clock)
             .then(()=> {
-
+                axios.get(`${API}/clocks`)
+                .then(res => setClocks(res.data.payload))
+                
                 navigate(`/clocks/${cid}`)
             })
             .catch(err => console.log(err))

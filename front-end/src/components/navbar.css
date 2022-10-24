@@ -77,11 +77,11 @@
     font-weight: bolder;
     padding-top: 10px;
     text-decoration: none;
-    
   }
 
   .navbar-all-clocks:hover { 
-    color: rgb(228, 236, 208) ;
+    color: rgb(133, 172, 33) ;
+    transition: 0.8s;
   }
 
   .toggle-button {
