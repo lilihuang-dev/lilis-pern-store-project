@@ -1,4 +1,4 @@
-.userLogin-container {
+.userLogin-container, .userSignIn-container {
     /* width: 100%; */
     /* border: 5px solid green; */
     /* background-color: red; */
@@ -10,13 +10,59 @@
     font-weight: bold;
   }
 
+.sign_up_card button{
+    background-color: rgb(149, 157, 56);
+    font-weight: bold;
+    margin-top: 10px;
+    margin-left: 70px;
+    align-items: center;
+    width: 150px;
+    height: 45px;
+}
+
+.sign_up_card button:hover,
+.sign_up_card button:focus {
+  box-shadow: inset 6.5em 6.5em rgb(85, 141, 70);
+}
+
+.sign_up_card_welcome {
+  margin: auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.sign_up_card {
+  margin: auto;
+  margin-top: 100px;
+  margin-bottom: 200px;
+  padding-bottom: 50px;
+  align-items: center;
+  line-height: 30px;
+  font-weight: bold;
+  box-shadow: 20px 20px rgb(129, 157, 63);
+}
+
+.sign_up_card input{
+  width: 300px;
+  border-radius: 15px;
+  padding-left: 25px;
+}
+
 .login-card {
-    margin: auto;
-    margin-top: 100px;
-    margin-bottom: 120px;
-    padding:50px;
-    line-height: 50px;
-    font-weight: bolder;
-    box-shadow: 20px 20px rgb(129, 157, 63);
-  }
+  margin: auto;
+  margin-top: 100px;
+  margin-bottom: 120px;
+  padding:50px;
+  line-height: 50px;
+  font-weight: bolder;
+  box-shadow: 20px 20px rgb(129, 157, 63);
+}
+
+.login-card input{
+  width: 190px;
+  border-radius: 15px;
+}
+  
 

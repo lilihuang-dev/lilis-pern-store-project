@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./userLogin.css"
-import Card from "react-bootstrap/Card";
-import { Button } from 'react-bootstrap';
+import { Button, Card } from 'react-bootstrap';
 import {useParams, useNavigate} from "react-router-dom";
 
 const API = process.env.REACT_APP_API_URL;
@@ -16,7 +15,7 @@ function UserLogin () {
     const navigate = useNavigate();
 
     const handleInput =(e)=> {
-        setUser({...user,[e.targert.id]: e.target.value})
+        setUser({...user,[e.target.id]: e.target.value})
     }
 
     const handleSubmit =(e)=> {
@@ -41,7 +40,7 @@ function UserLogin () {
                   <Button variant="success" type="submit" onClick={handleSubmit}>Submit</Button>
               {/* </Card.Link> */}
           
-              <Card.Link href="#">
+              <Card.Link href="/users/sign_up">
                   <Button variant="success">New? Sign up here.</Button>
               </Card.Link>
             </Card.Body>

@@ -15,6 +15,7 @@ import Footer from "./components/Footer";
 import FourOFour from "./components/FourOFour";
 
 import UserLogIn from "./components/UserLogIn";
+import CreateUser from "./components/CreateUser";
 
 
 const API = process.env.REACT_APP_API_URL;
@@ -76,6 +77,7 @@ function App () {
           <Route path="/clocks/checkout" element={<Checkout />}/>
           <Route path="/clocks/:cid" element={<ClockDetails handleAddToCart={handleAddToCart} setClocks={setClocks} />}/>
           <Route path="/clocks/:cid/edit" element={<EditClock setClocks={setClocks}/>}/>
+          <Route path="/users/sign_up" element={<CreateUser />}/>
           <Route path="/users/login" element={<UserLogIn />}/>
           <Route path="*" element={<FourOFour />}/>
         </Routes>
