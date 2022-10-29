@@ -1,8 +1,10 @@
 .clocks-container {
     display: flex;
     flex-direction: column;
-    /* margin: auto;
-    width: 100%; */
+    margin-left: 65px;
+    margin-right: 65px;
+    margin: auto;
+    width: 100%;
 }
 
 .clocks-sort {

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./userLogin.css"
+import Swal from "sweetalert2";
 import { Button, Card } from 'react-bootstrap';
 import {useParams, useNavigate} from "react-router-dom";
 
@@ -8,7 +9,7 @@ const API = process.env.REACT_APP_API_URL;
 
 function UserLogin () {
     const [user,setUser] = useState({
-        username: "",
+        user_name: "",
         password: "",
     });
    
@@ -20,8 +21,21 @@ function UserLogin () {
 
     const handleSubmit =(e)=> {
         e.preventDefault();
-        // JUST FOR TEST, NOT DONE YET
-        navigate("/clocks")
+
+        axios.post(`${API}/auth/login`, user)
+          .then(res => {
+            navigate("/")
+          }) 
+          .catch(error => {
+            Swal.fire({
+              title: 'Fail to log in!',
+              text: 'Please try again or sign up as an user.',
+              icon: 'info',
+              timer: 2000,
+              confirmButtonText: 'comfirmed'
+            })
+            console.log(error)
+          })
     }
 
     return (
@@ -30,7 +44,7 @@ function UserLogin () {
             <Card.Body>
               <Card.Title>Username: </Card.Title>
               <Card.Text>
-                <input type="text" id="username" value={user.username} onChange={handleInput} />
+                <input type="text" id="user_name" value={user.user_name} onChange={handleInput} />
               </Card.Text>
               <Card.Title>Password: </Card.Title>
               <Card.Text>

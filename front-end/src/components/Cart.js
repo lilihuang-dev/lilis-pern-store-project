@@ -51,7 +51,7 @@ const Cart =({clocksInCart, setClocksInCart})=> {
                         <th>Remove</th>
                     </tr>
                 </ thead>
-            <tbody> 
+            { subTotal ? <tbody> 
                     {clocksInCart.map(clock =>  {
                         return <CartDetails key={clock.cid} clock={clock} handleRemove={handleRemove} clocksInCart={clocksInCart} />
                     })}
@@ -61,9 +61,14 @@ const Cart =({clocksInCart, setClocksInCart})=> {
                 
                 <tr></tr>
              
-            </tbody>   
+            </tbody>  : 
+            <div className="cart-empty">
+                <h3>Your cart is empty now.</h3>
+                <Link to="/clocks"><h2><button className="checkout-contiuedShopping">Continue Shopping</button></h2></Link>
+            </div>
+            }  
             </Table>
-            <Link to="/clocks/checkout"><h2><button className="checkoutBtn">Check Out</button></h2></Link>
+            <Link to="/clocks/checkout"><button className="checkoutBtn">Check Out</button></Link>
         </div>
     )
 }

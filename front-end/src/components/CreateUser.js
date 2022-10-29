@@ -2,7 +2,6 @@ import React from 'react';
 import axios from "axios";
 import { useEffect, useState } from 'react';
 import "./userLogin.css"
-// import Card from "react-bootstrap/Card";
 import { Button, Card } from 'react-bootstrap';
 import { Link, useNavigate} from "react-router-dom";
 
@@ -13,7 +12,7 @@ const CreateUser = () => {
     const [ user, setUser ] = useState({
         first_name: "",
         last_name: "",
-        age: null,
+        age: 16,
         email: "",
         user_name: "",
         password: "",
@@ -22,17 +21,17 @@ const CreateUser = () => {
     let navigate = useNavigate();
 
     const handleSubmit = (e) => {
-       
+       user.age = Number(user.age)
+       console.log(user)
         e.preventDefault();
-        // axios.post(`${API}/auth/sign_up`, user)
-        // .then(() => {
+        axios.post(`${API}/auth/sign_up`, user)
+        .then(() => {
             navigate("/users/login")
-        //     alert("test!")
-        // }   
-        // )
-        // .catch((c) => {
-        //     console.log(c)
-        // })
+        }   
+        )
+        .catch((c) => {
+            console.log(c)
+        })
     }
 
     const handleInput = (e) => {
@@ -67,7 +66,7 @@ const CreateUser = () => {
               </Card.Text>
               <Card.Title>Password: </Card.Title>
               <Card.Text>
-                <input type="text" id="password" value={user.password} onChange={handleInput}/>
+                <input type="password" id="password" value={user.password} onChange={handleInput}/>
               </Card.Text>
   
                 <Button variant="success" type="submit" onClick={handleSubmit}>Sign Up</Button>

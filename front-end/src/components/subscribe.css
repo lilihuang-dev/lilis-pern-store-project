@@ -54,11 +54,11 @@ form {
     background: linear-gradient(to right, #f3f362 0%,rgb(171, 223, 49) 69%);;
     border: 0;
     border-radius: 25px;
-    color: #fff;
+    color: rgb(13, 9, 9);
     height: 51px;
     letter-spacing: 0;
-    margin-left: -60px;
-    padding: 0 58px;
+    margin-left: 50px;
+    padding: 0 28px;
     text-transform: uppercase;
     font-size: 15px;
 }

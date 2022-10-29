@@ -6,13 +6,6 @@ import "./clocks.css";
 // const API = process.env.REACT_APP_API_URL;
 
 const Clocks = ({clocks, setClocks, searchedClocks, originalClocks}) => {
-    // const [sortedClocks, setSortedClocks] = useState([...clocks]);
-
-    // useEffect(()=> {
-    //     axios.get(`${API}/clocks`)
-    //         .then(res => setClocks(res.data.payload))
-    //         .catch(err => console.log(err));
-    // },[]);
 
     const handleChange =(e)=>{
         let copyClocks = [...clocks];
@@ -33,19 +26,9 @@ const Clocks = ({clocks, setClocks, searchedClocks, originalClocks}) => {
             default:
                 setClocks(originalClocks);
         }
-
-        // if(e.target.value === "topRate") {
-        //     setClocks(topRate)
-        // } else if (e.target.value === "highToLow") {
-        //     setClocks(highToLow)
-        // } else if (e.target.value === "lowToHigh") {
-        //     setClocks(lowToHigh)
-        // } 
-        // else if (e.target.value === "no sorted"){
-        //     setClocks(originalClocks)
-        // }
         
     }
+    console.log("Clocks: ",clocks)
 
     return (
         <div className="clocks-container">
@@ -54,16 +37,24 @@ const Clocks = ({clocks, setClocks, searchedClocks, originalClocks}) => {
                 <span>Sort By:</span>
                 
                 <select id="clocks-select" onChange={handleChange}>
-                    <option value="no sorted"> --- </option>
+                    <option value="no sorted"> None </option>
                     <option value="topRate">Top Rated</option>
                     <option value="highToLow">Price: High To Low</option> 
                     <option value="lowToHigh">Price: Low To High</option> 
                 </select> 
             </div>
             <div className="all-clocks">
-                {!searchedClocks.length ? clocks.map(clock => {
+                {/* {!searchedClocks.length ? clocks.map(clock => {
                     return <Clock key={clock.cid} clock={clock} />
                 }) : searchedClocks.map(clock => {
+                    return <Clock key={clock.cid} clock={clock} />
+                })} */}
+
+                {searchedClocks.length=== 0 && clocks.map(clock => {
+                    return <Clock key={clock.cid} clock={clock} />
+                })}
+
+                {searchedClocks.length !== 0 && searchedClocks.map(clock => {
                     return <Clock key={clock.cid} clock={clock} />
                 })}
             </div>
