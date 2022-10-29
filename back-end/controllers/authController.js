@@ -13,10 +13,11 @@ auth.post("/sign_up", async(req, res) => {
     const hashedPassword = await bcrypt.hash(password, 10);
     user.password = hashedPassword;
     user.is_admin = user.user_name.toLowerCase() === "lilihuang@pursuit";
+    console.log(user)
     const createdUser = await createUser(user);
 
     let truthyData = {success: true, payload: createdUser};
-    let falsyData = {success: false, payload: "Error/Username already exist"};
+    let falsyData = {success: false, payload: "Error while creating the user"};
 
     if(createdUser.uid) {
         res.json(truthyData);
