@@ -32,7 +32,7 @@ const createUser = async (user) => {
              user.age,
              user.email,
              user.user_name,
-             bcrypt.hash(user.password),
+             user.password,
              user.is_admin ? true : false,
             ]
         );

@@ -1,6 +1,11 @@
 // DEPENDENCIES
 const cors = require("cors");
 const express = require("express");
+
+//session middleware
+const session = require("express-session");
+
+// controllers
 const userController = require("./controllers/userController");
 const clockController = require("./controllers/clockController");
 const authController = require("./controllers/authController");

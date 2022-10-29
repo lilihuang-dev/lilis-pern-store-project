@@ -45,7 +45,7 @@ users.get("/:uid", async(req, res) => {
 })
 
 // update user, for regular user update file
-users.post("/:uid", async(req, res) => {
+users.put("/:uid", async(req, res) => {
     try {
         const {uid} = req.params;
         const user = req.body;
