@@ -30,8 +30,7 @@
       height: 270px;
       border: 4mm ridge rgb(245, 210, 145);
       border-radius: 1px 0 3px 4px;
-      grid-area: card-img;
-      margin-top: 10px;
+      margin-left: 12px;
     }
   
     

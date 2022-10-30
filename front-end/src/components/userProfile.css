@@ -1,0 +1,18 @@
+.userProfile-container {
+    height: 100vh;
+    padding-top: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.userProfile-detailInfo {
+    display: flex;
+    flex-direction: row;
+    padding-top: 20px;
+}
+
+.userProfile-name {
+    margin-left: 15px;
+    font-size: x-large;
+}

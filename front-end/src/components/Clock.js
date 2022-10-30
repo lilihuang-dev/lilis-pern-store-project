@@ -5,13 +5,15 @@ import "./clock.css"
 const Clock = ({clock}) => {
     return (
         <div className="clock-card">
-            <img className="clock-card-img" src={clock.image ? clock.image : noImage} alt={clock.name} />
+            <Link to={`/clocks/${clock.cid}`}>
+                <img className="clock-card-img" src={clock.image ? clock.image : noImage} alt={clock.name} />
 
-            <Link to={`/clocks/${clock.cid}`}><h2 className="clock-card-name">{clock.name}</h2></Link>
+                <h2 className="clock-card-name">{clock.name}</h2>
 
-            <h3>${clock.price}.00</h3>
+                <h3>${clock.price}.00</h3>
 
-            <h5>🍀 Rating: {("❤️").repeat(clock.rating)}</h5>
+                <h5>🍀 Rating: {("❤️").repeat(clock.rating)}</h5>
+            </Link>
         </div>
     )
 }

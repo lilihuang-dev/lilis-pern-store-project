@@ -24,17 +24,17 @@ const Cart =({clocksInCart, setClocksInCart})=> {
 
     
     const handleRemove =(clock)=> {
-        Swal.fire({
-            title: 'Delete this item!',
-            text: 'Removed from shopping cart successfully.',
-            icon: 'info',
-            timer: 2000,
-            confirmButtonText: 'Confirmed'
-        })
+        // Swal.fire({
+        //     title: 'Delete this item!',
+        //     text: 'Removed from shopping cart successfully.',
+        //     icon: 'info',
+        //     timer: 2000,
+        //     confirmButtonText: 'Confirmed'
+        // })
         let filteredClocks = clocksInCart.filter(storedInCart => storedInCart.cid !== clock.cid);
-        setTimeout(() => {
+        // setTimeout(() => {
             setClocksInCart(filteredClocks)
-        }, 2500);
+        // }, 2500);
       }
 
 

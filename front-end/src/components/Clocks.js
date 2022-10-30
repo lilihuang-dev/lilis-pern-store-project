@@ -50,13 +50,13 @@ const Clocks = ({clocks, setClocks, searchedClocks, originalClocks}) => {
                     return <Clock key={clock.cid} clock={clock} />
                 })} */}
 
-                {searchedClocks.length=== 0 && clocks.map(clock => {
+                {clocks.map(clock => {
                     return <Clock key={clock.cid} clock={clock} />
                 })}
 
-                {searchedClocks.length !== 0 && searchedClocks.map(clock => {
+                {/* {searchedClocks.length !== 0 && searchedClocks.map(clock => {
                     return <Clock key={clock.cid} clock={clock} />
-                })}
+                })} */}
             </div>
         </div>
         

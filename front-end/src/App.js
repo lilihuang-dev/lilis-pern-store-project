@@ -16,6 +16,7 @@ import FourOFour from "./components/FourOFour";
 
 import UserLogIn from "./components/UserLogIn";
 import CreateUser from "./components/CreateUser";
+import UserProfile from "./components/UserProfile";
 
 
 const API = process.env.REACT_APP_API_URL;
@@ -24,11 +25,11 @@ function App () {
 
   const [clocks, setClocks] = useState([]);
   const [originalClocks, setOriginalClocks] = useState([]);
-  const [searchedClocks, setSearchedClocks] = useState([]);
+  
 
-  // const [logText, setLogText] = useState(
-  //   localStorage.getItem("id") ? "Log Out" : "Log In"
-  // )
+  const [logText, setLogText] = useState(
+    localStorage.getItem("id") ? "Log Out" : "Log In"
+  )
 
     const [clocksInCart, setClocksInCart] = useState([]);
  
@@ -36,8 +37,10 @@ function App () {
     useEffect(()=> {
       axios.get(`${API}/clocks`)
           .then(res => {
-            setClocks(res.data.payload);
-            setOriginalClocks(res.data.payload);
+            let allClocks = res.data.payload
+            setClocks(allClocks);
+            // setSearchedClocks(allClocks)
+            setOriginalClocks(allClocks);
           })
           .catch(err => console.log(err));
   },[]);
@@ -67,18 +70,19 @@ function App () {
 
   return (
     <Router>
-      <NavBar clocks={clocks} setClocks={setClocks} searchedClocks={searchedClocks} setSearchedClocks={setSearchedClocks}/>
+      <NavBar clocks={clocks} setClocks={setClocks} originalClocks={originalClocks} logText={logText} setLogText={setLogText} />
       <main>
         <Routes>
           <Route path="/" element={<Home />}/>
-          <Route path="/clocks" element={<Clocks clocks={clocks} setClocks={setClocks} originalClocks={originalClocks} searchedClocks={searchedClocks}/>}/>
+          <Route path="/clocks" element={<Clocks clocks={clocks} setClocks={setClocks} originalClocks={originalClocks} />}/>
           <Route path="/clocks/new" element={<NewClock />}/>
           <Route path="/clocks/cart" element={<Cart clocksInCart={clocksInCart} setClocksInCart={setClocksInCart} />}/>
           <Route path="/clocks/checkout" element={<Checkout />}/>
           <Route path="/clocks/:cid" element={<ClockDetails handleAddToCart={handleAddToCart} setClocks={setClocks} />}/>
           <Route path="/clocks/:cid/edit" element={<EditClock setClocks={setClocks}/>}/>
+          <Route path="/users/login" element={<UserLogIn logText={logText} setLogText={setLogText}/>}/>
           <Route path="/users/sign_up" element={<CreateUser />}/>
-          <Route path="/users/login" element={<UserLogIn />}/>
+          <Route path="/users/:uid" element={<UserProfile />}/>
           <Route path="*" element={<FourOFour />}/>
         </Routes>
       </main>

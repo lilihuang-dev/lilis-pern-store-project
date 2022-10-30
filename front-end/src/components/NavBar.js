@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./navbar.css";
 
-export default function NavBar ({clocks,setClocks,setSearchedClocks}) {
+export default function NavBar ({clocks,setClocks,originalClocks,logText, setLogText}) {
 
     const [isAdmin, setIsAdmin] = useState(false)
     const [searchInput, setSearchInput] = useState("");
@@ -13,22 +13,28 @@ export default function NavBar ({clocks,setClocks,setSearchedClocks}) {
         setBurgerBarOpen(!burgerBarOpen)
     }
 
-        function handleChange(e) {
-          
-            e.preventDefault();
-            setSearchInput(e.target.value);
+    function handleChange(e) {
+        
+        e.preventDefault();
+        setSearchInput((e.target.value).toLowerCase());
 
-            navigate("/clocks")
-            
-        }
+        navigate("/clocks")
+        
+    }
 
-    let input = searchInput.toLowerCase();
+  
     useEffect(() => {
         
-            let filterdClocks = clocks.filter(clock => (clock.name).toLowerCase().includes(input) || (clock.description).toLowerCase().includes(input));
-            setSearchedClocks(filterdClocks)
+        let filterdClocks = !searchInput ? [...originalClocks] : [...clocks].filter(clock => clock.name.toLowerCase().includes(searchInput));
+        setClocks(filterdClocks)
         
     },[searchInput])
+
+    const handleLogin = () => {
+        if(logText === "Log Out") {
+            setLogText("Log In")
+        } 
+    }
 
      
     return (
@@ -60,7 +66,11 @@ export default function NavBar ({clocks,setClocks,setSearchedClocks}) {
                     </li>
 
                     <li>
-                        <Link to="/users/login"><button>Login</button></Link>
+                        <Link to={logText === "Log Out" ? "/" : "/users/login"}>
+                            <button onClick={handleLogin}>
+                               {logText}
+                            </button>
+                        </Link>
                     </li>
 
                 </ul>

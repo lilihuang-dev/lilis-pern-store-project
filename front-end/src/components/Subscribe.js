@@ -4,15 +4,17 @@ import Swal from 'sweetalert2';
 
 function Subscribe() {
 
- const handleSubmit = () => {
+ const handleSubmit = (e) => {
+    e.preventDefault();
     Swal.fire({
         title: 'Added to Subscribe List!',
         text: 'Subscribe successfully.',
         icon: 'success',
-        timer: 5000,
+        timer: 2000,
         confirmButtonText: 'Cool'
       })
  }
+
   return (
     <div className='subscribe-section bg-with-black'>
         <div className='subscribe-container'>

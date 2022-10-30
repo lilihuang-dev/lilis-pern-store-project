@@ -7,7 +7,7 @@ import {useParams, useNavigate} from "react-router-dom";
 
 const API = process.env.REACT_APP_API_URL;
 
-function UserLogin () {
+function UserLogin ({logText, setLogText}) {
     const [user,setUser] = useState({
         user_name: "",
         password: "",
@@ -24,18 +24,20 @@ function UserLogin () {
 
         axios.post(`${API}/auth/login`, user)
           .then(res => {
-            navigate("/")
+            setLogText("Log Out")
+            const {uid} = res.data.payload
+            navigate(`/users/${uid}`)
           }) 
           .catch(error => {
             Swal.fire({
               title: 'Fail to log in!',
               text: 'Please try again or sign up as an user.',
               icon: 'info',
-              timer: 2000,
-              confirmButtonText: 'comfirmed'
+              timer: 2500,
             })
             console.log(error)
           })
+
     }
 
     return (
