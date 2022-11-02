@@ -18,6 +18,12 @@
     gap: 50px;
   } 
 
+.clock-detail-backBtn {
+  width:100px;
+  background-color: black;
+  /* max-width: max-content; */
+}
+
   .addedBtn {
     margin-right: 25px;
   }
@@ -29,11 +35,16 @@
   }
   
   .clock-card-navs * {
-    border: 3px solid olivedrab;
-    width: 100px;
+    border: 2px solid olivedrab;
+    border-radius: 20px;
+    max-width: max-content;
     font-size: large;
     background-color: rgb(168, 199, 95);
   } 
+
+  .clock-detail-backBtn {
+    width:250px;
+  }
 
   @media (max-width: 1200px) {
       .clock-card-details {
@@ -83,7 +94,16 @@
     .clock-card-navs {
         margin: auto;
         margin-top: 100px;
+        display: flex;
+        flex-direction: column;
     }
 
+    .clock-card-navs * {
+      border: none;
+      row-gap: 30px;
+      gap: 30px;
+      margin: 10px;
+      width: 250px;
+    } 
   
 }

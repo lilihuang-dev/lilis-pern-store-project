@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import "./userLogin.css"
 import { Button, Card } from 'react-bootstrap';
 import { Link, useNavigate} from "react-router-dom";
+import Swal from 'sweetalert2';
 
 const API = process.env.REACT_APP_API_URL;
 
@@ -21,17 +22,26 @@ const CreateUser = () => {
     let navigate = useNavigate();
 
     const handleSubmit = (e) => {
-       user.age = Number(user.age)
-       console.log(user)
-        e.preventDefault();
-        axios.post(`${API}/auth/sign_up`, user)
-        .then(() => {
-            navigate("/users/login")
-        }   
-        )
-        .catch((c) => {
-            console.log(c)
+      e.preventDefault();
+      user.age = Number(user.age)
+      axios.post(`${API}/auth/sign_up`, user)
+      .then(() => {
+          navigate("/users/login")
+      }   
+      )
+      .catch((c) => {
+          console.log(c)
+      })
+
+      if(!user.user_name || !user.password || !user.email) {
+        Swal.fire({
+          title: 'Requied field must be filled out!',
+          text: 'Please add user name, email and password.',
+          icon: 'info',
+          timer: 3500,
+          confirmButtonText: 'Thank you'
         })
+      }
     }
 
     const handleInput = (e) => {
@@ -58,15 +68,15 @@ const CreateUser = () => {
               </Card.Text>
               <Card.Title>Email: </Card.Title>
               <Card.Text>
-                <input type="email" id="email" value={user.email} onChange={handleInput} />
+                <input type="email" id="email" value={user.email} onChange={handleInput} placeholder="required" required/>
               </Card.Text>
               <Card.Title>Username: </Card.Title>
               <Card.Text>
-                <input type="text" id="user_name" value={user.user_name} onChange={handleInput} />
+                <input type="text" id="user_name" value={user.user_name} onChange={handleInput} placeholder="required"required/>
               </Card.Text>
               <Card.Title>Password: </Card.Title>
               <Card.Text>
-                <input type="password" id="password" value={user.password} onChange={handleInput}/>
+                <input type="password" id="password" value={user.password} onChange={handleInput} placeholder="required" required/>
               </Card.Text>
   
                 <Button variant="success" type="submit" onClick={handleSubmit}>Sign Up</Button>

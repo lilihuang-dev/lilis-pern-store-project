@@ -1,21 +1,38 @@
-.checkout_page {
-    font-weight: bold;
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    background-image: url(https://4bgowik9viu406fbr2hsu10z-wpengine.netdna-ssl.com/wp-content/uploads/2020/02/CTA-Orange-Circles.png);
-    background-size: cover;
-  }
 
-.checkout_page__notice {
-    margin: 50px;
+.check-out-container{
+    padding: 80px;
 }
 
-.checkout_page__form{
-    margin: 50px;
-    height: 100%;
+.order-products {
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 60px;
 }
 
-.checkout_page__submit {
-    margin-bottom: 60px;
+
+.order-product {
+    display: flex;
+    flex-direction: column; 
+    padding: 30px;
+    width: 220%;
+    line-height: 30px;
 }
-  
-  
+
+.order-product a{
+    color: rgb(11, 53, 22);
+}
+
+.order-product img{
+    margin-bottom: 20px;
+}
+
+.table{
+    height: 220px;
+}
+
+.price-details {
+    padding: 20px;
+    width: 40%;
+}

@@ -1,64 +1,147 @@
 import "./checkout.css"
+import { Link } from "react-router-dom";
+// import { PayPalButton } from "react-paypal-button-v2";
+
 
 const Checkout =()=> {
-    return (
-        <div className="checkout_page">
-            <br/>
-            <div className="checkout_page__notice">
-                <h1>We're down for scheduled maintenance 🧰 right now.</h1>
-                <h1>Sorry for any inconvienence.</h1>
-                <h1>Thank you for your patience.</h1>
-            </div>
-            <br/>
-            <br/>
-            <form className="checkout_page__form">
-                <div>
-                <h4>Full Name</h4>
-                <br/>
-                <label htmlFor="first_name">First Name: </label>
-                <input type="text" id="first_name" value=""/>
-                <br />
-                <br/>
-                <label htmlFor="last_name">Last Name: </label>
-                <input type="text" id="last_name" value=""/>
+
+
+
+  return (
+    <>
+        <div className="check-out-container">
+            <div className="row order-detail">
+                <div className="col-lg-4 col-sm-4 mb-lg-4 mb-5 mb-sm-0">
+                    <div className="row">
+                        <div className="col-md-4 center">
+                            <div className="">
+                                <i className="fas fa-user"></i>
+                            </div>
+                        </div>
+                        <div className="col-md-8 center">
+                            <h5>
+                                <strong>Customer</strong>
+                            </h5>
+                            <p>Lili Huang</p>
+                            <p>
+                                <a href="#">lilihuang@example.com</a>
+                            </p>
+                        </div>
+                    </div>
                 </div>
-                <br/>
-                <br/>
-                <h4>Billing Address</h4>
-                <br/>
-                <label htmlFor="street_address">Street Address: </label>
-                <input type="text" id="street_address" value=""/>
-                <br/>
-                <br/>
-                <label htmlFor="street_address_line2">Street Address Line 2: </label>
-                <input type="text" id="street_address_line2" value=""/>
-                <br/>
-                <br/>
-                <label htmlFor="city">City: </label>
-                <input type="text" id="city" value="" placeholder="Please enter city"/>
-                <br/>
-                <br/>
-                <label htmlFor="city">State: </label>
-                <select id="state">
-                    <option>Please Select</option>
-                    <option value="">NY</option>
-                </select>
-                <br/>
-                <br/>
-                <label htmlFor="phone_number">Phone Number: </label>
-                <input type="tel" id="phone_number" name="phone_number" value="" placeholder="000-000-0000" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"/>
-                <br />
-                <br/>
-                <br/>
-                <label htmlFor="email">Email: </label>
-                <input type="email" id="email" name="email" value=""/>
-                <br />
-                <br/>
-                <input type="submit" className="checkout_page__submit"/>
-            </form>
+
+                {/* 2 */}
+                <div className="col-lg-4 col-sm-4 mb-lg-4 mb-5 mb-sm-0">
+                    <div className="row">
+                        <div className="col-md-4 center">
+                            <div className="alert-success order-box">
+                                <i className="fas fa-truck-moving"></i>
+                            </div>
+                        </div>
+                        <div className="col-md-8 center">
+                            <h5>
+                                <strong>Order info</strong>
+                            </h5>
+                            <p>Shipping: New York, NY</p>
+                            <p>Pay method: Paypal</p>
+
+                            <div className="bg-info p-2 col-12">
+                                <p className="text-white text-center text-sm-start">
+                                    Paid on Oct 22 2022
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {/* 3 */}
+                <div className="col-lg-4 col-sm-4 mb-1g-4 mb-5 mb-sm-0">
+                    <div className="row">
+                        <div className="col-md-4 center">
+                            <div className="alert-success order-box">
+                                <i className="fas fa-map-marker-alt"></i>
+                            </div>
+                        </div>
+                        <div className="col-md-8 center">
+                            <h5>Deliver to</h5>
+                            <p>
+                                Address: 123 WEST 123rd Street, New York NY 10027
+                            </p>
+                            <div className="bg-danger p-1 col-12">
+                                <p className="text-white text-center text-sm-start">
+                                    Not Delivered
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>  
+            </div>  
+
+            <div className="order-products">
+                <div>
+                    {/* <Message variant="alert-info mt-5"> Your order is empty </ Message> */}
+                    <div className="order-product">
+                        <div className="col-md-3 col-6">
+                        <img src="https://via.placeholder.com/150" alt="product-placeholder"/>    
+                            {/* <img src="/images/4.png" alt="product"/> */}
+                        </div>
+                        <div className="col-md-5 col-6 d-flex align-items-center">
+                            <Link to={`/clocks/1`}>
+                                <h6>Ardale Wall Clock</h6>
+                            </Link>
+                        </div>
+                        <div >
+                            <div>QUANTITY: 1</div>
+                        </div>
+                        <div>
+                            <div>SUBTOTAL: $60</div>
+                        </div>
+                    </div>
+                </div>
+                {/* total */}
+                <div className="price-details">
+                    <table className="table table-bordered">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <strong>Products</strong>
+                                </td>
+                                <td>$60</td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <strong>Shipping</strong>
+                                </td>
+                                <td>Free</td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <strong>Tax</strong>
+                                </td>
+                                <td>$10.8</td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <strong>Total</strong>
+                                </td>
+                                <td>$70.8</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+
+                    <div className="col-12">
+                        {/* <PayPalButton amount={345} /> */}
+                    </div>
+                </div>
+            </div>
         </div>
         
-    )
+    </>
+  )
 }
+
 
 export default Checkout;

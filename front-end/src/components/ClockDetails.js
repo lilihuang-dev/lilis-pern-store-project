@@ -45,7 +45,7 @@ const ClockDetails = ({handleAddToCart, setClocks}) =>{
                 
                 <button onClick={()=>handleAddToCart(clock)} className="addedBtn">Add to Cart</button>
 
-                <Link to="/clocks"><button>Continue shopping</button></Link>
+                <Link to="/clocks/cart"><button>View Cart</button></Link>
             </div>
 
             <div className="clock-card-details">
@@ -58,9 +58,13 @@ const ClockDetails = ({handleAddToCart, setClocks}) =>{
             
           
             <div className="clock-card-navs">
-                <Link to="/clocks"><button>Back</button></Link>
-                <Link to={`/clocks/${cid}/edit`}><button>Edit</button></Link>
-                <div><button onClick={handleDelete}>Delete</button></div>
+                <Link to="/clocks"><button className="clock-detail-backBtn">⬅️ Continue Shopping</button></Link>
+                {false && 
+                <>
+                    <Link to={`/clocks/${cid}/edit`}><button>Edit</button></Link>
+                     <div><button onClick={handleDelete}>Delete</button></div>
+                </>
+                }
             </div>
         </div>
     )

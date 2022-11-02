@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import CartDetails from "./CartDetails";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {useEffect, useState} from "react";
@@ -6,9 +6,10 @@ import {Table} from "react-bootstrap";
 import "./cart.css"
 import Swal from 'sweetalert2';
 
-const Cart =({clocksInCart, setClocksInCart})=> {
+const Cart =({clocksInCart, setClocksInCart, logText})=> {
     const [subTotal, setSubTotal] = useState(0)
 
+    const navigate = useNavigate()
 
     useEffect(() => {
         let sub = 0;
@@ -18,23 +19,28 @@ const Cart =({clocksInCart, setClocksInCart})=> {
         setSubTotal(sub);
     }, [clocksInCart])
 
-    // const handleInputChange = (clock) => {
-    //     setClock
-    // }
-
     
     const handleRemove =(clock)=> {
-        // Swal.fire({
-        //     title: 'Delete this item!',
-        //     text: 'Removed from shopping cart successfully.',
-        //     icon: 'info',
-        //     timer: 2000,
-        //     confirmButtonText: 'Confirmed'
-        // })
         let filteredClocks = clocksInCart.filter(storedInCart => storedInCart.cid !== clock.cid);
-        // setTimeout(() => {
-            setClocksInCart(filteredClocks)
-        // }, 2500);
+        setClocksInCart(filteredClocks)
+      }
+
+      const handleLinkToCheckout =()=> {
+        if(logText === "Log Out") {
+            navigate("/clocks/checkout")
+        } else {
+            Swal.fire({
+                title: 'Failed to check out',
+                text: 'Please log in or sign up first, thank you.',
+                icon: 'info',
+                timer: 2000,
+                confirmButtonText: 'Thank you'
+              })
+              setTimeout(() => {
+                navigate("/users/login")
+              }, 2000)
+              
+        }
       }
 
 
@@ -63,12 +69,13 @@ const Cart =({clocksInCart, setClocksInCart})=> {
              
             </tbody>  : 
             <div className="cart-empty">
-                <h3>Your cart is empty now.</h3>
-                <Link to="/clocks"><h2><button className="checkout-contiuedShopping">Continue Shopping</button></h2></Link>
+                <h3>Your shopping cart is empty.</h3>
+                <h3>Please add at least one item to your cart before checking out.</h3>
+                <Link to="/clocks"><h2><button className="checkout-contiuedShopping">➡️  Continue Shopping</button></h2></Link>
             </div>
             }  
             </Table>
-            <Link to="/clocks/checkout"><button className="checkoutBtn">Check Out</button></Link>
+            <button className="checkoutBtn" onClick={handleLinkToCheckout}>Check Out</button>
         </div>
     )
 }

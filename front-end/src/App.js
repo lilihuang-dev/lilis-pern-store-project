@@ -22,7 +22,7 @@ import UserProfile from "./components/UserProfile";
 const API = process.env.REACT_APP_API_URL;
 
 function App () {
-
+  const [logInUser, setLogInUser] = useState({});
   const [clocks, setClocks] = useState([]);
   const [originalClocks, setOriginalClocks] = useState([]);
   
@@ -76,11 +76,11 @@ function App () {
           <Route path="/" element={<Home />}/>
           <Route path="/clocks" element={<Clocks clocks={clocks} setClocks={setClocks} originalClocks={originalClocks} />}/>
           <Route path="/clocks/new" element={<NewClock />}/>
-          <Route path="/clocks/cart" element={<Cart clocksInCart={clocksInCart} setClocksInCart={setClocksInCart} />}/>
+          <Route path="/clocks/cart" element={<Cart clocksInCart={clocksInCart} setClocksInCart={setClocksInCart} logText={logText}/>}/>
           <Route path="/clocks/checkout" element={<Checkout />}/>
-          <Route path="/clocks/:cid" element={<ClockDetails handleAddToCart={handleAddToCart} setClocks={setClocks} />}/>
+          <Route path="/clocks/:cid" element={<ClockDetails handleAddToCart={handleAddToCart} setClocks={setClocks} logText={logText}/>}/>
           <Route path="/clocks/:cid/edit" element={<EditClock setClocks={setClocks}/>}/>
-          <Route path="/users/login" element={<UserLogIn logText={logText} setLogText={setLogText}/>}/>
+          <Route path="/users/login" element={<UserLogIn logText={logText} setLogText={setLogText} logInUser={logInUser} setLogInUser={setLogInUser}/>}/>
           <Route path="/users/sign_up" element={<CreateUser />}/>
           <Route path="/users/:uid" element={<UserProfile />}/>
           <Route path="*" element={<FourOFour />}/>

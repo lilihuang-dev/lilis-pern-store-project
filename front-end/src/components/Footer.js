@@ -1,5 +1,5 @@
 import React from "react";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./footer.css";
 
 export default function Footer() {
@@ -12,13 +12,13 @@ export default function Footer() {
               <h3>About us</h3>
               <ul>
                 <li>
-                  <a href="#">News</a>
+                  <a href="https://github.com/LILYHUANGPURSUIT">News</a>
                 </li>
                 <li>
-                  <a href="#">Careers</a>
+                  <a href="https://github.com/LILYHUANGPURSUIT">Careers</a>
                 </li>
                 <li>
-                  <a href="#">Mission and Vision</a>
+                  <a href="https://github.com/LILYHUANGPURSUIT">Mission and Vision</a>
                 </li>
               </ul>
             </div>
@@ -27,13 +27,13 @@ export default function Footer() {
               <h3>Help</h3>
               <ul>
                 <li>
-                  <a href="#">Policies</a>
+                  <a href="https://www.linkedin.com/in/lili-huang-pursuit">Policies</a>
                 </li>
                 <li>
-                  <a href="#!">Returns</a>
+                  <a href="https://www.linkedin.com/in/lili-huang-pursuit">Returns</a>
                 </li>
                 <li>
-                  <a href="#!">Seller Center</a>
+                  <a href="https://www.linkedin.com/in/lili-huang-pursuit">Seller Center</a>
                 </li>
               </ul>
             </div>

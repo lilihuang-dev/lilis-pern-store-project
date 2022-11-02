@@ -7,14 +7,15 @@ import {useParams, useNavigate} from "react-router-dom";
 
 const API = process.env.REACT_APP_API_URL;
 
-function UserLogin ({logText, setLogText}) {
+function UserLogin ({logText, setLogText, logInUser, setLogInUser}) {
     const [user,setUser] = useState({
         user_name: "",
         password: "",
     });
    
     const navigate = useNavigate();
-
+    const logInId = useParams()
+    console.log(logInId)
     const handleInput =(e)=> {
         setUser({...user,[e.target.id]: e.target.value})
     }
@@ -37,8 +38,19 @@ function UserLogin ({logText, setLogText}) {
             })
             console.log(error)
           })
-
     }
+   
+    useEffect(()=> {
+      axios.get(`${API}/users/${logInId}`)
+          .then(res => {
+            
+            setLogInUser(res.data.payload)
+          
+          }) 
+          .catch(error => {
+            console.log(error)
+          })
+    }, [logText])
 
     return (
         <form className="userLogin-container">
@@ -50,7 +62,7 @@ function UserLogin ({logText, setLogText}) {
               </Card.Text>
               <Card.Title>Password: </Card.Title>
               <Card.Text>
-                <input type="text" id="password" value={user.password} onChange={handleInput}/>
+                <input type="password" id="password" value={user.password} onChange={handleInput}/>
               </Card.Text>
               {/* <Card.Link> */}
                   <Button variant="success" type="submit" onClick={handleSubmit}>Submit</Button>
