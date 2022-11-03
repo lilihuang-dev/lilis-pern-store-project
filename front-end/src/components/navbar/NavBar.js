@@ -61,17 +61,19 @@ export default function NavBar ({clocks,setClocks,originalClocks,logText, setLog
                     {isAdmin && <li>
                         <Link to="/clocks/new"><button className="navbar-new-clock">Add New Clock</button></Link>
                     </li>}
-                    <li>
-                        <Link to="/clocks/cart"><button>Cart  🛒</button></Link>
-                    </li>
+                    <>
+                        <li className="cart-btn">
+                            <Link to="/clocks/cart"><button>Cart  🛒</button></Link>
+                        </li>
 
-                    <li>
-                        <Link to={logText === "Log Out" ? "/" : "/users/login"}>
-                            <button onClick={handleLogin}>
-                               {logText}
-                            </button>
-                        </Link>
-                    </li>
+                        <li className="login-btn">
+                            <Link to={logText === "Log Out" ? "/" : "/users/login"}>
+                                <button onClick={handleLogin}>
+                                {logText}
+                                </button>
+                            </Link>
+                        </li>
+                    </>
 
                 </ul>
             </div>

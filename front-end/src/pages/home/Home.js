@@ -1,4 +1,4 @@
-import Subscribe from "./Subscribe.js"
+import Subscribe from "../../components/subscription/Subscribe.js"
 
 export default function Home () {
     return (

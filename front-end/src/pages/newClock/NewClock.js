@@ -1,10 +1,11 @@
 import {  useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import Error from "./Error";
+import Error from "../../components/Error";
 
 const API = process.env.REACT_APP_API_URL;
 
+// for admin
 const NewClock =()=>{
     const [clock, setClock] = useState({
         name:"",
@@ -37,7 +38,7 @@ const NewClock =()=>{
        
     }
 
-
+    
     return (
         <div>
         {clock.name.length > 50 ? <Error /> : ""}

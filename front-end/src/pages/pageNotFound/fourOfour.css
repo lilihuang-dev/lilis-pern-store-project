@@ -1,0 +1,9 @@
+.page-404 {
+    height: 100vh;
+}
+
+.page-404 h1 {
+    display: flex;
+    justify-content: center;
+    padding-top: 20%;
+}

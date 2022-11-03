@@ -30,7 +30,7 @@
 }
 
 .all-clocks {
-    /* margin-top: 50px; */
+    margin: auto;
     display: grid;
     grid-template-columns: repeat(3,1fr);
   }

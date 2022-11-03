@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 // import axios from "axios";
-import Clock from "./Clock.js";
+import Clock from "../clock/Clock";
 import "./clocks.css";
 
 // const API = process.env.REACT_APP_API_URL;

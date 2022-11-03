@@ -58,11 +58,11 @@ function UserLogin ({logText, setLogText, logInUser, setLogInUser}) {
             <Card.Body>
               <Card.Title>Username: </Card.Title>
               <Card.Text>
-                <input type="text" id="user_name" value={user.user_name} onChange={handleInput} />
+                <input type="text" id="user_name" value={user.user_name} onChange={handleInput} required/>
               </Card.Text>
               <Card.Title>Password: </Card.Title>
               <Card.Text>
-                <input type="password" id="password" value={user.password} onChange={handleInput}/>
+                <input type="password" id="password" value={user.password} onChange={handleInput} required/>
               </Card.Text>
               {/* <Card.Link> */}
                   <Button variant="success" type="submit" onClick={handleSubmit}>Submit</Button>

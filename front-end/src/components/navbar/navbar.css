@@ -73,16 +73,20 @@
   }
   
   .navbar-all-clocks {
-    color: black;
+    color: rgb(15, 13, 17);
     font-weight: bolder;
     padding-top: 10px;
     text-decoration: none;
   }
-
+  
+  
   .navbar-all-clocks:hover { 
-    color: rgb(133, 172, 33) ;
+    color: rgb(22, 30, 3) ;
     transition: 0.8s;
+    /* cursor: ; */
   }
+
+
 
   .toggle-button {
     position: absolute;
@@ -102,9 +106,10 @@
     border-radius: 10px;
   }
 
-@media (max-width: 800px) {
+@media (max-width: 1025px) {
     .navbar {
         flex-direction: column;
+        /* background-color: brown; */
     }
 
     .navbar-all-clocks {

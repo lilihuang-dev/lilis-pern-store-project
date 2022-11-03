@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom"
 import axios from "axios";
 import "./clockDetails.css"
-import noImage from "../assets/image_not_found.png";
+import noImage from "../../assets/image_not_found.png";
 
 
 const ClockDetails = ({handleAddToCart, setClocks}) =>{

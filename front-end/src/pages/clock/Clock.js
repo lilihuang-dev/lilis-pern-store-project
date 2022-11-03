@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import noImage from "../assets/image_not_found.png";
+import noImage from "../../assets/image_not_found.png"
 import "./clock.css"
 
 const Clock = ({clock}) => {

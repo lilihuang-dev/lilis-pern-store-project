@@ -6,12 +6,11 @@ import { Link } from "react-router-dom";
 const Checkout =()=> {
 
 
-
   return (
     <>
         <div className="check-out-container">
             <div className="row order-detail">
-                <div className="col-lg-4 col-sm-4 mb-lg-4 mb-5 mb-sm-0">
+                <div className="col-lg-4">
                     <div className="row">
                         <div className="col-md-4 center">
                             <div className="">
@@ -31,7 +30,7 @@ const Checkout =()=> {
                 </div>
 
                 {/* 2 */}
-                <div className="col-lg-4 col-sm-4 mb-lg-4 mb-5 mb-sm-0">
+                <div className="col-lg-4">
                     <div className="row">
                         <div className="col-md-4 center">
                             <div className="alert-success order-box">
@@ -45,8 +44,8 @@ const Checkout =()=> {
                             <p>Shipping: New York, NY</p>
                             <p>Pay method: Paypal</p>
 
-                            <div className="bg-info p-2 col-12">
-                                <p className="text-white text-center text-sm-start">
+                            <div className="bg-info">
+                                <p className="text-white text-center">
                                     Paid on Oct 22 2022
                                 </p>
                             </div>
@@ -54,7 +53,7 @@ const Checkout =()=> {
                     </div>
                 </div>
                 {/* 3 */}
-                <div className="col-lg-4 col-sm-4 mb-1g-4 mb-5 mb-sm-0">
+                <div className="col-lg-4">
                     <div className="row">
                         <div className="col-md-4 center">
                             <div className="alert-success order-box">
@@ -66,8 +65,8 @@ const Checkout =()=> {
                             <p>
                                 Address: 123 WEST 123rd Street, New York NY 10027
                             </p>
-                            <div className="bg-danger p-1 col-12">
-                                <p className="text-white text-center text-sm-start">
+                            <div className="bg-danger">
+                                <p className="text-white text-center">
                                     Not Delivered
                                 </p>
                             </div>
@@ -82,7 +81,6 @@ const Checkout =()=> {
                     <div className="order-product">
                         <div className="col-md-3 col-6">
                         <img src="https://via.placeholder.com/150" alt="product-placeholder"/>    
-                            {/* <img src="/images/4.png" alt="product"/> */}
                         </div>
                         <div className="col-md-5 col-6 d-flex align-items-center">
                             <Link to={`/clocks/1`}>

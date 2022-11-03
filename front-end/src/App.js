@@ -3,20 +3,19 @@ import { useEffect, useState } from "react";
 import Swal from 'sweetalert2';
 import axios from "axios";
 
-import Home from "./components/Home";
-import NavBar from "./components/NavBar";
-import Clocks from "./components/Clocks";
-import ClockDetails from "./components/ClockDetails";
-import Cart from "./components/Cart";
-import Checkout from "./components/Checkout";
-import NewClock from "./components/NewClock";
-import EditClock from "./components/EditClock";
-import Footer from "./components/Footer";
-import FourOFour from "./components/FourOFour";
-
-import UserLogIn from "./components/UserLogIn";
-import CreateUser from "./components/CreateUser";
-import UserProfile from "./components/UserProfile";
+import Home from "./pages/home/Home";
+import NavBar from "./components/navbar/NavBar";
+import Clocks from "./pages/clocks/Clocks";
+import ClockDetails from "./components/clockDetail/ClockDetails";
+import Cart from "./pages/shoppingCart/Cart";
+import Checkout from "./pages/checkOut/Checkout";
+import NewClock from "./pages/newClock/NewClock";
+import EditClock from "./pages/updateClock/EditClock";
+import Footer from "./components/footer/Footer";
+import UserLogIn from "./pages/logIn/UserLogIn";
+import CreateUser from "./pages/signUp/CreateUser";
+import UserProfile from "./pages/user/UserProfile";
+import FourOFour from "./pages/pageNotFound/FourOFour";
 
 
 const API = process.env.REACT_APP_API_URL;
@@ -25,6 +24,7 @@ function App () {
   const [logInUser, setLogInUser] = useState({});
   const [clocks, setClocks] = useState([]);
   const [originalClocks, setOriginalClocks] = useState([]);
+
   
 
   const [logText, setLogText] = useState(
@@ -39,7 +39,6 @@ function App () {
           .then(res => {
             let allClocks = res.data.payload
             setClocks(allClocks);
-            // setSearchedClocks(allClocks)
             setOriginalClocks(allClocks);
           })
           .catch(err => console.log(err));
@@ -76,7 +75,7 @@ function App () {
           <Route path="/" element={<Home />}/>
           <Route path="/clocks" element={<Clocks clocks={clocks} setClocks={setClocks} originalClocks={originalClocks} />}/>
           <Route path="/clocks/new" element={<NewClock />}/>
-          <Route path="/clocks/cart" element={<Cart clocksInCart={clocksInCart} setClocksInCart={setClocksInCart} logText={logText}/>}/>
+          <Route path="/clocks/cart" element={<Cart clocksInCart={clocksInCart} setClocksInCart={setClocksInCart} logText={logText} />} />
           <Route path="/clocks/checkout" element={<Checkout />}/>
           <Route path="/clocks/:cid" element={<ClockDetails handleAddToCart={handleAddToCart} setClocks={setClocks} logText={logText}/>}/>
           <Route path="/clocks/:cid/edit" element={<EditClock setClocks={setClocks}/>}/>

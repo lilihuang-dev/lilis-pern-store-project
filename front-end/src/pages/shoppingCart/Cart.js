@@ -1,9 +1,9 @@
-import { Link, useNavigate } from "react-router-dom";
-import CartDetails from "./CartDetails";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import { Link, useNavigate } from "react-router-dom"
 import {useEffect, useState} from "react";
 import {Table} from "react-bootstrap";
+import CartDetails from "../../components/shoppingCartDetail/CartDetails";
 import "./cart.css"
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Swal from 'sweetalert2';
 
 const Cart =({clocksInCart, setClocksInCart, logText})=> {
@@ -59,7 +59,7 @@ const Cart =({clocksInCart, setClocksInCart, logText})=> {
                 </ thead>
             { subTotal ? <tbody> 
                     {clocksInCart.map(clock =>  {
-                        return <CartDetails key={clock.cid} clock={clock} handleRemove={handleRemove} clocksInCart={clocksInCart} />
+                        return <CartDetails key={clock.cid} clock={clock} handleRemove={handleRemove} />
                     })}
                 <tr>Subtotal: ${subTotal.toFixed(2)}</tr> 
                 <tr>Tax: ${(subTotal * 0.18).toFixed(2)}</tr>

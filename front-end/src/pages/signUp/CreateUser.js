@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from "axios";
 import { useEffect, useState } from 'react';
-import "./userLogin.css"
+import "../logIn/userLogin.css"
 import { Button, Card } from 'react-bootstrap';
 import { Link, useNavigate} from "react-router-dom";
 import Swal from 'sweetalert2';
