@@ -9,7 +9,7 @@ const Clocks = ({clocks, setClocks, searchedClocks, originalClocks}) => {
 
     const handleChange =(e)=>{
         let copyClocks = [...clocks];
-
+        
         switch (e.target.value) {
             case "lowToHigh": 
                 copyClocks.sort((a,b) => a.price - b.price);

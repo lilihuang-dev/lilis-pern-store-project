@@ -1,46 +1,34 @@
-// import {useState, useEffect} from "react";
-
 import axios from "axios";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
-const CartDetails =({clock, handleRemove})=> {
+const CartDetails =({clock, handleRemove, clocksInCart, setClocksInCart})=> {
    
+    const [updatedClock, setUpdatedClock] = useState(clock)
     
     const handleQuantity = (e) => {
-       
-            // if (e.target.id === "plus") {
-            
-            //   setQuantity(quantity + 1);
-            //   }
-             
-            // else {
-             
-            //     if (quantity > 1) {
-            //       setQuantity(quantity - 1);
-            //     }
-    
-                
-            //   }
-
-            
+  
+        if (e.target.id === "plus") {
+          setUpdatedClock({...updatedClock, quantity: updatedClock.quantity+1})
+          }
+        else {
+          if(updatedClock.quantity > 1) {
+            setUpdatedClock({...updatedClock, quantity: updatedClock.quantity-1})
+          }
+        }
       };
 
-      // useEffect(() => {
-      //   axios.put(`${API}/clocks/${cid}`,clock)
-      //       .then(()=> {
-      //           axios.get(`${API}/clocks`)
-      //           .then(res => setClocks(res.data.payload))
-                
-      //           navigate(`/clocks/${cid}`)
-      //       })
-      //       .catch(err => console.log(err))
-      // }, [clock.quantity])
+      useEffect(() => {
+        const clocks = clocksInCart.filter(singleClock => singleClock.cid !== updatedClock.cid)
+
+        setClocksInCart([...clocks, updatedClock])
+
+      }, [updatedClock.quantity])
 
 
     return (
         <tr>
-            <th>{clock.name}</th>
-            <td>{clock.price}</td>
+            <th>{updatedClock.name}</th>
+            <td>{updatedClock.price}</td>
             <td>
                 <label htmlFor="quantity">Quantity: </label>
                 {/* <input type="number" min = "1" max = {clock.stock} id="quantity" value={clock.quantity} onChange={(e) => handleNumChange(e)}/> */}
@@ -54,7 +42,7 @@ const CartDetails =({clock, handleRemove})=> {
                     +
                   </button>
                   <div className="quantity">
-                    <p>{clock.quantity}</p>
+                    <p>{updatedClock.quantity}</p>
                   </div>
                   <button
                     className="minus"
@@ -66,7 +54,7 @@ const CartDetails =({clock, handleRemove})=> {
                 </div>
             </td>
            
-            <td><button onClick={()=>handleRemove(clock)}>Remove</button></td>
+            <td><button onClick={()=>handleRemove(updatedClock)}>Remove</button></td>
         </tr>
     )
 }

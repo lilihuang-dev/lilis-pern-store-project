@@ -54,15 +54,15 @@ function App () {
           confirmButtonText: 'Cool'
         })
    
-      let sameClocks;
-      let newData = [...clocksInCart];
-        let foundClock =newData.find(clockToFind => clockToFind.cid === addedClock.cid)
+      
+
+        let foundClock = clocksInCart.find(clockToFind => clockToFind.cid === addedClock.cid)
           if(!foundClock) {
             setClocksInCart([...clocksInCart, addedClock])
           } else {
-            sameClocks = {...foundClock, quantity: foundClock.quantity +1};
-            Object.assign(foundClock, sameClocks);
-            setClocksInCart([...newData])
+            let sameClocks = {...foundClock, quantity: foundClock.quantity +1};
+            const clocks = clocksInCart.filter(singleInCart => singleInCart.cid !== foundClock.cid)
+            setClocksInCart([...clocks, sameClocks])
           } 
         
     }

@@ -59,11 +59,11 @@ const Cart =({clocksInCart, setClocksInCart, logText})=> {
                 </ thead>
             { subTotal ? <tbody> 
                     {clocksInCart.map(clock =>  {
-                        return <CartDetails key={clock.cid} clock={clock} handleRemove={handleRemove} />
+                        return <CartDetails key={clock.cid} clock={clock} clocksInCart={clocksInCart} setClocksInCart={setClocksInCart} handleRemove={handleRemove} />
                     })}
                 <tr>Subtotal: ${subTotal.toFixed(2)}</tr> 
-                <tr>Tax: ${(subTotal * 0.18).toFixed(2)}</tr>
-                <tr>Total: {(subTotal * 1.18).toFixed(2)}</tr> 
+                <tr>Tax: ${(subTotal * 0.08875).toFixed(2)}</tr>
+                <tr>Total: {(subTotal * 1.08875).toFixed(2)}</tr> 
                 
                 <tr></tr>
              

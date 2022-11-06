@@ -24,7 +24,7 @@ export default function NavBar ({clocks,setClocks,originalClocks,logText, setLog
 
   
     useEffect(() => {
-        
+      
         let filterdClocks = !searchInput ? [...originalClocks] : [...clocks].filter(clock => clock.name.toLowerCase().includes(searchInput));
         setClocks(filterdClocks)
         
