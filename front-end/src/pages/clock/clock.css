@@ -23,6 +23,25 @@
     transform: scale(1.1);
 }
 
+.rateAndBtnToAdd {
+  display: flex;
+  justify-content: space-between;
+}
+
+.plus-radius {
+  width:40px;
+  height:35px;
+  background:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0) content-box,
+    #000;
+  background-position:center;
+  background-size: 80% 3px,3px 70%;
+  background-repeat:no-repeat;
+  box-sizing:border-box;
+  border-radius:50%;
+}
+
 
 @media (max-width: 1200px) {
   .clock-card-img {

@@ -2,7 +2,7 @@ import Clock from "../clock/Clock";
 import "./clocks.css";
 
 
-const Clocks = ({clocks, setClocks, originalClocks}) => {
+const Clocks = ({clocks, setClocks, originalClocks,handleAddToCart}) => {
 
     const handleChange =(e)=>{
         let copyClocks = [...clocks];
@@ -42,7 +42,7 @@ const Clocks = ({clocks, setClocks, originalClocks}) => {
             <div className="all-clocks">
     
                 {clocks.length ? clocks.map(clock => {
-                    return <Clock key={clock.cid} clock={clock} />
+                    return <Clock key={clock.cid} clock={clock} handleAddToCart={handleAddToCart}/>
                 }) : 
                 <h3 style={{padding: 60, margin: 30}}>No Search Result</h3>}
 

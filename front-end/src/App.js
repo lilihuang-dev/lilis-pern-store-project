@@ -41,14 +41,22 @@ function App () {
   },[]);
 
   const handleAddToCart =(addedClock)=> {
-    
-    Swal.fire({
-      title: 'Added to Cart!',
-      text: 'Added to shopping cart successfully.',
+
+    var toastMixin = Swal.mixin({
+      toast: true,
       icon: 'success',
+      title: 'Add clock to cart',
+      animation: false,
+      position: 'relative',
+      showConfirmButton: false,
       timer: 2000,
-      confirmButtonText: 'Cool'
-    })
+      timerProgressBar: true,
+    });
+
+    toastMixin.fire({
+      animation: true,
+      title: 'Added Successfully'
+    });
 
     let foundClock = clocksInCart.find(clockToFind => clockToFind.cid === addedClock.cid)
     if(!foundClock) {
@@ -65,7 +73,7 @@ function App () {
       <main>
         <Routes>
           <Route path="/" element={<Home />}/>
-          <Route path="/clocks" element={<Clocks clocks={clocks} setClocks={setClocks} originalClocks={originalClocks} />}/>
+          <Route path="/clocks" element={<Clocks clocks={clocks} setClocks={setClocks} originalClocks={originalClocks} handleAddToCart={handleAddToCart}/>}/>
           <Route path="/clocks/new" element={<NewClock />}/>
           <Route path="/clocks/cart" element={<Cart clocksInCart={clocksInCart} setClocksInCart={setClocksInCart} logText={logText} />} />
           <Route path="/clocks/checkout" element={<Checkout />}/>
