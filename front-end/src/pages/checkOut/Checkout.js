@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 // import { PayPalButton } from "react-paypal-button-v2";
 
 
-const Checkout =()=> {
+const Checkout =(clocksInCart,setClocksInCart)=> {
 
 
   return (
@@ -45,9 +45,9 @@ const Checkout =()=> {
                             <p>Pay method: Paypal</p>
 
                             <div className="bg-info">
-                                <p className="text-white text-center">
+                                {/* <p className="text-white text-center">
                                     Paid on Oct 22 2022
-                                </p>
+                                </p> */}
                             </div>
                         </div>
                     </div>
@@ -66,9 +66,9 @@ const Checkout =()=> {
                                 Address: 123 WEST 123rd Street, New York NY 10027
                             </p>
                             <div className="bg-danger">
-                                <p className="text-white text-center">
+                                {/* <p className="text-white text-center">
                                     Not Delivered
-                                </p>
+                                </p> */}
                             </div>
                         </div>
                     </div>
@@ -77,10 +77,9 @@ const Checkout =()=> {
 
             <div className="order-products">
                 <div>
-                    {/* <Message variant="alert-info mt-5"> Your order is empty </ Message> */}
                     <div className="order-product">
                         <div className="col-md-3 col-6">
-                        <img src="https://via.placeholder.com/150" alt="product-placeholder"/>    
+                        {/* <img src="https://via.placeholder.com/150" alt="product-placeholder"/>     */}
                         </div>
                         <div className="col-md-5 col-6 d-flex align-items-center">
                             <Link to={`/clocks/1`}>

@@ -1,5 +1,6 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import "./cartDetails.css"
 
 const CartDetails =({clock, handleRemove, clocksInCart, setClocksInCart})=> {
     
@@ -25,7 +26,7 @@ const CartDetails =({clock, handleRemove, clocksInCart, setClocksInCart})=> {
 
   return (
     <tr>
-      <th>{clock.name}</th>
+      <th> <Link to={`/clocks/${clock.cid}`} className="clockInCart-name">{clock.name}</Link></th>
       <td>{clock.price}</td>
       <td  className="quantity-container">
         <br />
