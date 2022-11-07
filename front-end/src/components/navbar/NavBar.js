@@ -17,17 +17,12 @@ export default function NavBar ({clocks,setClocks,originalClocks,logText, setLog
         
         e.preventDefault();
         setSearchInput((e.target.value).toLowerCase());
-
         navigate("/clocks")
-        
     }
 
-  
     useEffect(() => {
-      
         let filterdClocks = !searchInput ? [...originalClocks] : [...clocks].filter(clock => clock.name.toLowerCase().includes(searchInput));
         setClocks(filterdClocks)
-        
     },[searchInput])
 
     const handleLogin = () => {
@@ -36,7 +31,6 @@ export default function NavBar ({clocks,setClocks,originalClocks,logText, setLog
         } 
     }
 
-     
     return (
         <nav className="navbar">
             <div className="navbar-homepage-log">
@@ -58,9 +52,10 @@ export default function NavBar ({clocks,setClocks,originalClocks,logText, setLog
             <div className={`navbar-links ${burgerBarOpen ? "active" : ""}`}>
                 <ul >
                     
-                    {isAdmin && <li>
-                        <Link to="/clocks/new"><button className="navbar-new-clock">Add New Clock</button></Link>
-                    </li>}
+                    {isAdmin && 
+                        <li>
+                            <Link to="/clocks/new"><button className="navbar-new-clock">Add New Clock</button></Link>
+                        </li>}
                     <>
                         <li className="cart-btn">
                             <Link to="/clocks/cart"><button>Cart  🛒</button></Link>
@@ -69,20 +64,15 @@ export default function NavBar ({clocks,setClocks,originalClocks,logText, setLog
                         <li className="login-btn">
                             <Link to={logText === "Log Out" ? "/" : "/users/login"}>
                                 <button onClick={handleLogin}>
-                                {logText}
+                                    {logText}
                                 </button>
                             </Link>
                         </li>
                     </>
-
                 </ul>
             </div>
-
-
         </nav>
-
     )
-
 };
 
 

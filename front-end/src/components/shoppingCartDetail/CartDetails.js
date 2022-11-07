@@ -2,61 +2,57 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 const CartDetails =({clock, handleRemove, clocksInCart, setClocksInCart})=> {
-   
-    const [updatedClock, setUpdatedClock] = useState(clock)
     
-    const handleQuantity = (e) => {
-  
-        if (e.target.id === "plus") {
-          setUpdatedClock({...updatedClock, quantity: updatedClock.quantity+1})
-          }
-        else {
-          if(updatedClock.quantity > 1) {
-            setUpdatedClock({...updatedClock, quantity: updatedClock.quantity-1})
-          }
-        }
-      };
+  const [quantity, setQuantity] = useState(clock.quantity);
 
-      useEffect(() => {
-        const clocks = clocksInCart.filter(singleClock => singleClock.cid !== updatedClock.cid)
+  const handleQuantity = (e) => {
+    if (e.target.id === "plus") {
+      setQuantity(quantity+1) ;
+    } else if (e.target.id === "minus" && clock.quantity > 1){
+      setQuantity(quantity-1) ;
+      } 
+  }
 
-        setClocksInCart([...clocks, updatedClock])
+  useEffect(() => {
+    clocksInCart = clocksInCart.map(clockWithNewQuantity => {
+      if(clockWithNewQuantity.cid === clock.cid){
+          clockWithNewQuantity.quantity = quantity
+      }
+      return clockWithNewQuantity;
+    })
+    setClocksInCart(clocksInCart);
+  }, [quantity])
 
-      }, [updatedClock.quantity])
-
-
-    return (
-        <tr>
-            <th>{updatedClock.name}</th>
-            <td>{updatedClock.price}</td>
-            <td>
-                <label htmlFor="quantity">Quantity: </label>
-                {/* <input type="number" min = "1" max = {clock.stock} id="quantity" value={clock.quantity} onChange={(e) => handleNumChange(e)}/> */}
-                <br />
-                <div>
-                  <button
-                    className="plus"
-                    id="plus"
-                    onClick={handleQuantity}
-                  >
-                    +
-                  </button>
-                  <div className="quantity">
-                    <p>{updatedClock.quantity}</p>
-                  </div>
-                  <button
-                    className="minus"
-                    id="minus"
-                    onClick={handleQuantity}
-                  >
-                    -
-                  </button>
-                </div>
-            </td>
-           
-            <td><button onClick={()=>handleRemove(updatedClock)}>Remove</button></td>
-        </tr>
-    )
+  return (
+    <tr>
+      <th>{clock.name}</th>
+      <td>{clock.price}</td>
+      <td  className="quantity-container">
+        <br />
+        <div className="quantity-controllers">
+          <button
+            className="plus"
+            id="plus"
+            onClick={handleQuantity}
+          >
+            +
+          </button>
+          <div className="quantity">
+            <p>{clock.quantity}</p>
+          </div>
+          <button
+            className="minus"
+            id="minus"
+            onClick={handleQuantity}
+          >
+            -
+          </button>
+        </div>
+    </td>
+    
+    <td><button className="removeBtn" onClick={()=>handleRemove(clock)}>Remove</button></td>
+    </tr>
+  )
 }
 
 export default CartDetails;

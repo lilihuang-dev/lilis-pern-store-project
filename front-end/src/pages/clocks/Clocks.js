@@ -1,11 +1,8 @@
-import { useEffect, useState } from "react";
-// import axios from "axios";
 import Clock from "../clock/Clock";
 import "./clocks.css";
 
-// const API = process.env.REACT_APP_API_URL;
 
-const Clocks = ({clocks, setClocks, searchedClocks, originalClocks}) => {
+const Clocks = ({clocks, setClocks, originalClocks}) => {
 
     const handleChange =(e)=>{
         let copyClocks = [...clocks];
@@ -28,7 +25,6 @@ const Clocks = ({clocks, setClocks, searchedClocks, originalClocks}) => {
         }
         
     }
-    console.log("Clocks: ",clocks)
 
     return (
         <div className="clocks-container">
@@ -44,19 +40,12 @@ const Clocks = ({clocks, setClocks, searchedClocks, originalClocks}) => {
                 </select> 
             </div>
             <div className="all-clocks">
-                {/* {!searchedClocks.length ? clocks.map(clock => {
+    
+                {clocks.length ? clocks.map(clock => {
                     return <Clock key={clock.cid} clock={clock} />
-                }) : searchedClocks.map(clock => {
-                    return <Clock key={clock.cid} clock={clock} />
-                })} */}
+                }) : 
+                <h3 style={{padding: 60, margin: 30}}>No Search Result</h3>}
 
-                {clocks.map(clock => {
-                    return <Clock key={clock.cid} clock={clock} />
-                })}
-
-                {/* {searchedClocks.length !== 0 && searchedClocks.map(clock => {
-                    return <Clock key={clock.cid} clock={clock} />
-                })} */}
             </div>
         </div>
         

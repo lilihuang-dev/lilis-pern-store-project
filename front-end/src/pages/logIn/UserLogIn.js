@@ -7,7 +7,7 @@ import {useParams, useNavigate} from "react-router-dom";
 
 const API = process.env.REACT_APP_API_URL;
 
-function UserLogin ({logText, setLogText, logInUser, setLogInUser}) {
+function UserLogin ({logText, setLogText, setLogInUser}) {
     const [user,setUser] = useState({
         user_name: "",
         password: "",
@@ -64,9 +64,7 @@ function UserLogin ({logText, setLogText, logInUser, setLogInUser}) {
               <Card.Text>
                 <input type="password" id="password" value={user.password} onChange={handleInput} required/>
               </Card.Text>
-              {/* <Card.Link> */}
-                  <Button variant="success" type="submit" onClick={handleSubmit}>Submit</Button>
-              {/* </Card.Link> */}
+              <Button variant="success" type="submit" onClick={handleSubmit}>Submit</Button>
           
               <Card.Link href="/users/sign_up">
                   <Button variant="success">New? Sign up here.</Button>

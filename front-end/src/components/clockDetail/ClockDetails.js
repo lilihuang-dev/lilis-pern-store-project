@@ -29,10 +29,6 @@ const ClockDetails = ({handleAddToCart, setClocks}) =>{
         .catch(err => console.log(err));
     }
 
-    
-
-    
-
     return (
         <div className="clock-details">
             <img className="clock-card-img" src={clock.image ? clock.image : noImage} alt={clock.name} />

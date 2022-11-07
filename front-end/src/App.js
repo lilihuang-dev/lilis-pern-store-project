@@ -24,48 +24,40 @@ function App () {
   const [logInUser, setLogInUser] = useState({});
   const [clocks, setClocks] = useState([]);
   const [originalClocks, setOriginalClocks] = useState([]);
-
+  const [clocksInCart, setClocksInCart] = useState([]);
   
-
   const [logText, setLogText] = useState(
     localStorage.getItem("id") ? "Log Out" : "Log In"
   )
 
-    const [clocksInCart, setClocksInCart] = useState([]);
- 
-
-    useEffect(()=> {
-      axios.get(`${API}/clocks`)
-          .then(res => {
-            let allClocks = res.data.payload
-            setClocks(allClocks);
-            setOriginalClocks(allClocks);
-          })
-          .catch(err => console.log(err));
+  useEffect(()=> {
+    axios.get(`${API}/clocks`)
+        .then(res => {
+          let allClocks = res.data.payload
+          setClocks(allClocks);
+          setOriginalClocks(allClocks);
+        })
+        .catch(err => console.log(err));
   },[]);
 
-    const handleAddToCart =(addedClock)=> {
-      
-        Swal.fire({
-          title: 'Added to Cart!',
-          text: 'Added to shopping cart successfully.',
-          icon: 'success',
-          timer: 2000,
-          confirmButtonText: 'Cool'
-        })
-   
-      
+  const handleAddToCart =(addedClock)=> {
+    
+    Swal.fire({
+      title: 'Added to Cart!',
+      text: 'Added to shopping cart successfully.',
+      icon: 'success',
+      timer: 2000,
+      confirmButtonText: 'Cool'
+    })
 
-        let foundClock = clocksInCart.find(clockToFind => clockToFind.cid === addedClock.cid)
-          if(!foundClock) {
-            setClocksInCart([...clocksInCart, addedClock])
-          } else {
-            let sameClocks = {...foundClock, quantity: foundClock.quantity +1};
-            const clocks = clocksInCart.filter(singleInCart => singleInCart.cid !== foundClock.cid)
-            setClocksInCart([...clocks, sameClocks])
-          } 
-        
-    }
+    let foundClock = clocksInCart.find(clockToFind => clockToFind.cid === addedClock.cid)
+    if(!foundClock) {
+      setClocksInCart([...clocksInCart, addedClock])
+    } else {
+      let updatedFoundClocks = {...foundClock, quantity: foundClock.quantity +1};
+      Object.assign(foundClock, updatedFoundClocks)
+    } 
+  }
 
   return (
     <Router>
@@ -77,7 +69,7 @@ function App () {
           <Route path="/clocks/new" element={<NewClock />}/>
           <Route path="/clocks/cart" element={<Cart clocksInCart={clocksInCart} setClocksInCart={setClocksInCart} logText={logText} />} />
           <Route path="/clocks/checkout" element={<Checkout />}/>
-          <Route path="/clocks/:cid" element={<ClockDetails handleAddToCart={handleAddToCart} setClocks={setClocks} logText={logText}/>}/>
+          <Route path="/clocks/:cid" element={<ClockDetails handleAddToCart={handleAddToCart} setClocks={setClocks} />}/>
           <Route path="/clocks/:cid/edit" element={<EditClock setClocks={setClocks}/>}/>
           <Route path="/users/login" element={<UserLogIn logText={logText} setLogText={setLogText} logInUser={logInUser} setLogInUser={setLogInUser}/>}/>
           <Route path="/users/sign_up" element={<CreateUser />}/>

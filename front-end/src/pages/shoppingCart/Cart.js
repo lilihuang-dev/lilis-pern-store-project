@@ -19,6 +19,20 @@ const Cart =({clocksInCart, setClocksInCart, logText})=> {
         setSubTotal(sub);
     }, [clocksInCart])
 
+    const handleQuantity = (e, clock) => {
+        let updatedClocks = clocksInCart.map(rowClock => {
+
+          if(rowClock.cid === clock.cid) {
+            if (e.target.id === "plus") {
+              return { ...rowClock, quantity: clock.quantity+1} ;
+            } else if (e.target.id === "minus" && clock.quantity > 1){
+                  return { ...rowClock, quantity: clock.quantity-1} ;
+              } else return rowClock;
+          }
+        })
+        setClocksInCart(updatedClocks)
+       
+    };
     
     const handleRemove =(clock)=> {
         let filteredClocks = clocksInCart.filter(storedInCart => storedInCart.cid !== clock.cid);
@@ -64,17 +78,22 @@ const Cart =({clocksInCart, setClocksInCart, logText})=> {
                 <tr>Subtotal: ${subTotal.toFixed(2)}</tr> 
                 <tr>Tax: ${(subTotal * 0.08875).toFixed(2)}</tr>
                 <tr>Total: {(subTotal * 1.08875).toFixed(2)}</tr> 
-                
-                <tr></tr>
-             
-            </tbody>  : 
-            <div className="cart-empty">
-                <h3>Your shopping cart is empty.</h3>
-                <h3>Please add at least one item to your cart before checking out.</h3>
-                <Link to="/clocks"><h2><button className="checkout-contiuedShopping">➡️  Continue Shopping</button></h2></Link>
-            </div>
+
+                </tbody>  : 
+                <tbody>
+                    <tr>Subtotal: 00.00</tr> 
+                    <tr>Tax: 00.00</tr>
+                    <tr>Total: 00.00</tr> 
+                </tbody>
             }  
             </Table>
+            {!subTotal && 
+                <div className="cart-empty">
+                    <h3>Your shopping cart is empty.</h3>
+                    <h3>Please add at least one item to your cart before checking out.</h3>
+                    <Link to="/clocks"><h2><button className="checkout-contiuedShopping">➡️  Continue Shopping</button></h2></Link>
+                </div>
+            }
             <button className="checkoutBtn" onClick={handleLinkToCheckout}>Check Out</button>
         </div>
     )
