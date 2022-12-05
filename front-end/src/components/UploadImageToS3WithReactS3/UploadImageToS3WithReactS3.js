@@ -3,10 +3,10 @@ import { uploadFile } from 'react-s3';
 
 window.Buffer = window.Buffer || require("buffer").Buffer;
 
-const S3_BUCKET ='ecommercewallclockphotos';
-const REGION ='us-east-1';
-const ACCESS_KEY ='AKIAX5MSC4CME3KXH5I7';
-const SECRET_ACCESS_KEY ='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';
+// const S3_BUCKET ='ecommercewallclockphotos';
+// const REGION ='us-east-1';
+// const ACCESS_KEY ='AKIAX5MSC4CME3KXH5I7';
+// const SECRET_ACCESS_KEY ='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';
 
 const config = {
     bucketName: S3_BUCKET,
