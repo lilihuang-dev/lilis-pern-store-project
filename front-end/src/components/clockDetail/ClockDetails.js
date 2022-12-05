@@ -5,7 +5,7 @@ import "./clockDetails.css"
 import noImage from "../../assets/image_not_found.png";
 
 
-const ClockDetails = ({handleAddToCart, setClocks}) =>{
+const ClockDetails = ({handleAddToCart, setClocks,logText}) =>{
     const [clock, setClock] = useState({});
     const {cid} = useParams();
     const navigate = useNavigate();
@@ -55,7 +55,7 @@ const ClockDetails = ({handleAddToCart, setClocks}) =>{
           
             <div className="clock-card-navs">
                 <Link to="/clocks"><button className="clock-detail-backBtn">⬅️ Continue Shopping</button></Link>
-                {false && 
+                {logText === "Log Out" && 
                 <>
                     <Link to={`/clocks/${cid}/edit`}><button>Edit</button></Link>
                      <div><button onClick={handleDelete}>Delete</button></div>
