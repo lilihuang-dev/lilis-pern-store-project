@@ -15,7 +15,6 @@ import Footer from "./components/footer/Footer";
 import UserLogIn from "./pages/logIn/UserLogIn";
 import CreateUser from "./pages/signUp/CreateUser";
 import UserProfile from "./pages/user/UserProfile";
-import UploadImageToS3WithReactS3 from "./components/UploadImageToS3WithReactS3/UploadImageToS3WithReactS3";
 import FourOFour from "./pages/pageNotFound/FourOFour";
 
 
@@ -84,7 +83,6 @@ function App () {
           <Route path="/users/login" element={<UserLogIn logText={logText} setLogText={setLogText} logInUser={logInUser} setLogInUser={setLogInUser}/>}/>
           <Route path="/users/sign_up" element={<CreateUser />}/>
           <Route path="/users/:uid" element={<UserProfile />}/>
-          <Route path="/upload" element={<UploadImageToS3WithReactS3 />} />
           <Route path="*" element={<FourOFour />}/>
         </Routes>
       </main>
