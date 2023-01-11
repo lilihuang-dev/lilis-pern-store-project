@@ -23,12 +23,13 @@ const API = process.env.REACT_APP_API_URL;
 
 function App () {
   const [logInUser, setLogInUser] = useState({});
+  const [currtentUser, setCurrentUser] = useState(null);
   const [clocks, setClocks] = useState([]);
   const [originalClocks, setOriginalClocks] = useState([]);
   const [clocksInCart, setClocksInCart] = useState([]);
   
   const [logText, setLogText] = useState(
-    localStorage.getItem("id") ? "Log Out" : "Log In"
+    currtentUser ? "Log Out" : "Log In"
   )
 
   useEffect(()=> {

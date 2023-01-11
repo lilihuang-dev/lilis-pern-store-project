@@ -7,7 +7,7 @@ INSERT INTO clocks (name, description, image, dimensions, color, material, price
 ('Daisy Wall Clock','Wall clock has no glass surface, so bigger numerals make it easy to read time even from distance. It is a perfect gift for children or someone who loves flowers.','https://i.imgur.com/kVyvwi0.jpg','69 * 69 CM','White & Yellow','Wood',66,5,true, 30, 1),
 ('Baron Wall Clock','Not just a wall clock, but an ornament','https://i.imgur.com/Yi3gSwG.jpg','60 * 50 CM', 'Black','Metal',100,5,true, 30, 1),
 ('Lux Wall Clock','The clock mechanism runs silent. Metal secure loop backing for easy hang. Suitable for indoor use only. Glam Design.','https://i.imgur.com/UpldvzG.jpg','50 * 50 CM','Gold','Metal',88,4,true,30, 1),
-('TEST Wall Clock','The clock mechanism runs silent. Metal secure loop backing for easy hang. Suitable for indoor use only. Glam Design.','https://i.imgur.com/UpldvzG.jpg','50 * 50 CM','Gold','Metal',88,4,true,30, 1),
+('TEST Wall Clock','The clock mechanism runs silent. Metal secure loop backing for easy hang. Suitable for indoor use only. Glam Design.','https://i.imgur.com/UpldvzG.jpg','50 * 50 CM','Gold','Metal',78,4,true,30, 1),
 ('TEST Wall Clock','The clock mechanism runs silent. Metal secure loop backing for easy hang. Suitable for indoor use only. Glam Design.','https://i.imgur.com/UpldvzG.jpg','50 * 50 CM','Gold','Metal',88,4,true,30, 1);
 
 INSERT INTO users (first_name, last_name, age, email, user_name, password, is_admin) VALUES
@@ -15,6 +15,10 @@ INSERT INTO users (first_name, last_name, age, email, user_name, password, is_ad
 ('Bill', 'Manley', 40, 'cde@gmail.com', 'CDE','cdeC123*', false),
 ('Jordan', 'Laurent', 35, 'fgh@gmail.com', 'FGH','fghF123*', false);
 
+INSERT INTO email_subscriptions (firstname, email)VALUES
+('test1', 'test1@gmail.com'),
+('test2', 'test2@gmail.com'),
+('test3', 'test3@gmail.com');
 
 -- INSERT INTO reviews (uid, cid, review, review_date, rating ) VALUES
 -- ('1','1', 'My Favorite', 'July 20 2022 11:59 PM (EDT)', 4),

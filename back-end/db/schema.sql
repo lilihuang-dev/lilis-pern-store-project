@@ -17,9 +17,11 @@ CREATE TABLE clocks (
     rating NUMERIC,
     CHECK (rating >=0 AND rating <=5),
     featured BOOLEAN,
-    stock INTEGER DEFAULT 0,
+    stock INTEGER DEFAULT 50,
     quantity INTEGER DEFAULT 0
 );
+
+-- DROP TABLE IF EXISTS users;
 
 CREATE TABLE users (
     uid SERIAL PRIMARY KEY,
@@ -31,6 +33,78 @@ CREATE TABLE users (
     password TEXT NOT NULL,
     is_admin BOOLEAN DEFAULT FALSE
 );
+
+CREATE TABLE email_subscriptions (
+    id SERIAL PRIMARY KEY,
+    firstname VARCHAR(50) NOT NULL,
+    email VARCHAR(50) NOT NULL UNIQUE
+)
+
+
+
+-- CREATE TABLE orders {
+--     oid SERIAL PRIMARY KEY, 
+--     uid INTEGER,
+--     created_at timestamp,
+--     modified_at timestamp
+-- };
+
+
+-- CREATE TABLE suborders (   
+--     suborderid SERIAL PRIMARY KEY,
+--     quantity INTEGER,
+--     cid INTEGER REFERENCES clocks(cid),
+--     oid INTEGER REFERENCES orders(oid),
+--     ON DELETE CASCADE
+-- );
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-- CREATE TABLE user_address {
+--     aid SERIAL PRIMARY KEY,
+--     uid INTEGER,
+--     address_line1 VARCHAR,
+--     address_line2 VARCHAR,
+--     city VARCHAR,
+--     postal_code VARCHAR,
+--     country VARCHAR,
+--     telephone VARCHAR,
+--     mobile VARCHAR
+-- }
+
+-- CREATE TABLE user_payment {
+--     payid SERIAL PRIMARY KEY, 
+--     uid INTEGER,
+--     payment_type VARCHAR,
+--     provider VARCHAR,
+--     account_no INTEGER,
+--     expiry DATE
+-- }
+
 
 
 
@@ -45,15 +119,9 @@ CREATE TABLE users (
 --     ON DELETE CASCADE
 -- );
 
--- DROP TABLE IF EXISTS users;
 
 
 
 
 
 
-
-
--- CREATE TABLE users_clocks (
---     uid
--- )

@@ -9,6 +9,7 @@ const session = require("express-session");
 const userController = require("./controllers/userController");
 const clockController = require("./controllers/clockController");
 const authController = require("./controllers/authController");
+const emailSubscriptionController = require("./controllers/emailSubscriptionController");
 
 // CONFIGURATION
 const app = express();
@@ -27,6 +28,8 @@ app.use("/users", userController);
 app.use("/clocks", clockController);
 
 app.use("/auth", authController);
+
+app.use("/emailSubscription", emailSubscriptionController);
 
 app.get("*", (req, res)=> {
   res.status(404).json("Page not found!")
