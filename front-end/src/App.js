@@ -59,13 +59,15 @@ function App () {
       title: 'Added Successfully'
     });
 
-    let foundClock = clocksInCart.find(clockToFind => clockToFind.cid === addedClock.cid)
-    if(!foundClock) {
-      setClocksInCart([...clocksInCart, addedClock])
+    const foundClockIndex = clocksInCart.findIndex((clock) => clock.cid === addedClock.cid);
+    if (foundClockIndex === -1) {
+      const updatedClocks = [...clocksInCart, {...addedClock, quantity: 1}];
+      setClocksInCart(updatedClocks);
     } else {
-      let updatedFoundClocks = {...foundClock, quantity: foundClock.quantity +1};
-      Object.assign(foundClock, updatedFoundClocks)
-    } 
+      const updatedClocks = [...clocksInCart];
+      updatedClocks[foundClockIndex] = {...updatedClocks[foundClockIndex], quantity: updatedClocks[foundClockIndex].quantity + 1};
+      setClocksInCart(updatedClocks);
+    }
   }
 
   return (
