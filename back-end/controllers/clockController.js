@@ -18,7 +18,6 @@ clocks.get("/", async(req, res) => {
 });
 
 clocks.get("/:cid", async(req, res) => {
-    console.log("21",req.params)
     const {cid} = req.params;
     console.log("controller",cid)
     try {
